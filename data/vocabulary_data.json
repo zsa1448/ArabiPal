@@ -1,0 +1,1954 @@
+
+{
+  "A1": {
+    "Greetings": [
+      {
+        "arabic": "مرحبا",
+        "english": "Hello",
+        "translit": "Marhaban",
+        "quiz_questions": [
+      {
+        "type": "match",
+        "question": "ما معنى 'مرحبا' ؟",
+        "correct": "Hello",
+        "options": ["Goodbye", "Thank you", "Hello", "Welcome"]
+      }]
+      },
+      {
+        "arabic": "السلام عليكم",
+        "english": "Peace be upon you (formal greeting)",
+        "translit": "As-salaam 'alaikum",
+        "quiz_questions": [
+      {
+        "type": "mcq",
+        "question": "ما التحية الرسمية في العربية؟",
+        "correct": "السلام عليكم",
+        "options": ["مرحبا", "السلام عليكم", "أهلاً", "شكراً"]
+      }]
+      },
+      {
+        "arabic": "وعليكم السلام",
+        "english": "And upon you be peace (formal response)",
+        "translit": "Wa 'alaikum as-salaam",
+        "quiz_questions": [
+      {
+        "type": "mcq",
+        "question": "كيف ترد على 'السلام عليكم'؟",
+        "correct": "وعليكم السلام",
+        "options": ["شكراً", "عفواً", "وعليكم السلام", "أهلاً"]
+      }]
+      },
+      {
+        "arabic": "أهلاً",
+        "english": "Hello (informal greeting)",
+        "translit": "Ahlan",
+        "quiz_questions": [
+      {
+        "type": "mcq",
+        "question": "'أهلاً' تعني؟",
+        "correct": "Hello (informal greeting)",
+        "options": ["Goodbye", "Hello (informal greeting)", "Thank you", "Sorry"]
+      }]
+      },
+      {
+        "arabic": "أهلاً وسهلاً",
+        "english": "Welcome",
+        "translit": "Ahlan wa sahlan",
+        "quiz_questions": [
+          {
+        "type": "mcq",
+        "question": "Which phrase means 'Welcome' in Arabic?",
+        "correct": "أهلاً وسهلاً",
+        "options": ["مرحبا", "أهلاً وسهلاً", "السلام عليكم", "شكراً"]
+      }]
+      },
+      {
+        "arabic": "أهلاً بكَ / بِكِ",
+        "english": "Welcome to you (common response to ahlan wa sahlan)",
+        "translit": "Ahlan bik (m) / Ahlan biki (f)",
+        "quiz_questions": [
+      {
+        "type": "mcq",
+        "question": "كيف ترد على 'أهلاً وسهلاً'؟",
+        "correct": "أهلاً بكَ / بِكِ",
+        "options": ["شكراً", "عفواً", "أهلاً بكَ / بِكِ", "مع السلامة"]
+      }]
+      }
+    ],
+    "Numbers": [
+      {
+        "arabic": "صِفر",
+        "english": "Zero",
+        "translit": "ṣifr",
+        "quiz_questions":[{
+        "type": "mcq",
+        "question": "Which Arabic word means 'Zero'?",
+        "correct": "صِفر",
+        "options": ["واحد", "صِفر", "عشرة", "خمسة"]
+      }]
+      },
+      {
+        "arabic": "واحد",
+        "english": "One",
+        "translit": "waḥid"
+      },
+      {
+        "arabic": "إثنان",
+        "english": "Two",
+        "translit": "ithnān"
+      },
+      {
+        "arabic": "ثلاثة",
+        "english": "Three",
+        "translit": "thalāthah"
+      },
+      {
+        "arabic": "أَربَعَة",
+        "english": "Four",
+        "translit": "arbaʿah",
+        "quiz_questions": [
+      {
+        "type": "mcq",
+        "question": "ما هو الرقم الذي يأتي بعد 'ثلاثة'؟",
+        "correct": "Three",
+        "options": ["Two", "Four", "Three", "Five"]
+      }]
+      },
+      {
+        "arabic": "خَمسَة",
+        "english": "Five",
+        "translit": "khamsah"
+      },
+      {
+        "arabic": "سِتَّة",
+        "english": "Six",
+        "translit": "sittah"
+      },
+      {
+        "arabic": "سَبْعَة",
+        "english": "Seven",
+        "translit": "sabʿah",
+        "quiz_questions":[
+          {
+        "type": "mcq",
+        "question": "Which word means 'Seven' in Arabic?",
+        "correct": "سَبْعَة",
+        "options": ["ستة", "سبعة", "ثمانية", "تسعة"]
+      }
+        ]
+      },
+      {
+        "arabic": "ثَمَانِيَة",
+        "english": "Eight",
+        "translit": "thamāniyah"
+      },
+      {
+        "arabic": "تِسْعَة",
+        "english": "Nine",
+        "translit": "tisʿah"
+      },
+      {
+        "arabic": "عَشَرَة",
+        "english": "Ten",
+        "translit": "ʿasharah"
+      },
+      {
+        "arabic": "أَحَدَ عَشَرَ",
+        "english": "Eleven",
+        "translit": "aḥada ʿashara"
+      },
+      {
+        "arabic": "إثْنا عَشَرَ",
+        "english": "Twelve",
+        "translit": "ithnā ʿashara",
+        "quiz_questions": [
+      {
+        "type": "mcq",
+        "question": "كم عدد 'إثنا عشر'؟",
+        "correct": "Twelve",
+        "options": ["Ten", "Eleven", "Twelve", "Thirteen"]
+      }]
+      },
+      {
+        "arabic": "ثَلاثَةَ عَشَرَ",
+        "english": "Thirteen",
+        "translit": "thalāthata ʿashara"
+      },
+      {
+        "arabic": "أَرْبَعَةَ عَشَرَ",
+        "english": "Fourteen",
+        "translit": "arbaʿata ʿashara"
+      },
+      {
+        "arabic": "خَمْسَةَ عَشَرَ",
+        "english": "Fifteen",
+        "translit": "khamsata ʿashara"
+      },
+      {
+        "arabic": "سِتَّةَ عَشَرَ",
+        "english": "Sixteen",
+        "translit": "sittata ʿashara"
+      },
+      {
+        "arabic": "سَبْعَةَ عَشَرَ",
+        "english": "Seventeen",
+        "translit": "sabʿata ʿashara"
+      },
+      {
+        "arabic": "ثَمانِيَةَ عَشَرَ",
+        "english": "Eighteen",
+        "translit": "thamāniyata ʿashara"
+      },
+      {
+        "arabic": "تِسْعَةَ عَشَرَ",
+        "english": "Nineteen",
+        "translit": "tisʿata ʿashara"
+      },
+      {
+        "arabic": "عِشْرُونَ",
+        "english": "Twenty",
+        "translit": "ʿishrūna",
+        "quiz_questions": [{
+        "type": "mcq",
+        "question": "The number that comes after nineteen?",
+        "correct": "Twenty",
+        "options": ["Ten", "Fifteen", "Twenty", "Thirty"]
+      }]
+    }
+  
+    ],
+    "Days of the Week": [
+      {
+        "arabic": "الأَحَد",
+        "english": "Sunday",
+        "translit": "al-aḥad"
+      },
+      {
+        "arabic": "الإثْنَيْن",
+        "english": "Monday",
+        "translit": "al-ithnayn"
+      },
+      {
+        "arabic": "الثُّلاثاء",
+        "english": "Tuesday",
+        "translit": "ath-thulāthāʾ"
+      },
+      {
+        "arabic": "الأَرْبِعاء",
+        "english": "Wednesday",
+        "translit": "al-arbiʿāʾ"
+      },
+      {
+        "arabic": "الخَمِيس",
+        "english": "Thursday",
+        "translit": "al-khamīs"
+      },
+      {
+        "arabic": "الجُمْعَة",
+        "english": "Friday",
+        "translit": "al-jumʿah"
+      },
+      {
+        "arabic": "السَّبْت",
+        "english": "Saturday",
+        "translit": "as-sabt"
+      }
+    ],
+    "Essential Nouns": [
+      {
+        "arabic": "بَيْت",
+        "english": "house",
+        "translit": "bayt"
+      },
+      {
+        "arabic": "وَقْت",
+        "english": "time",
+        "translit": "waqt"
+      },
+      {
+        "arabic": "يَوْم",
+        "english": "day",
+        "translit": "yawm"
+      },
+      {
+        "arabic": "عَمَل",
+        "english": "work",
+        "translit": "ʿamal"
+      },
+      {
+        "arabic": "شَخْص",
+        "english": "person",
+        "translit": "shakhṣ"
+      }
+    ],
+    "Expressions": [
+      {
+        "arabic": "نَعَم",
+        "english": "yes",
+        "translit": "naʿam"
+      },
+      {
+        "arabic": "لا",
+        "english": "no",
+        "translit": "lā"
+      },
+      {
+        "arabic": "شُكْراً",
+        "english": "thank you",
+        "translit": "shukran"
+      },
+      {
+        "arabic": "عَفْواً",
+        "english": "you're welcome",
+        "translit": "ʿafwan"
+      },
+      {
+        "arabic": "مِنْ فَضْلِك",
+        "english": "please",
+        "translit": "min faḍlik"
+      },
+      {
+        "arabic": "آسِف",
+        "english": "sorry",
+        "translit": "āsif"
+      },
+      {
+        "arabic": "صَبَاحُ الْخَيْر",
+        "english": "good morning",
+        "translit": "ṣabāḥ al-khayr"
+      },
+      {
+        "arabic": "مَسَاءُ الْخَيْر",
+        "english": "good evening",
+        "translit": "masā’ al-khayr"
+      }
+    ],
+    "Places": [
+      {
+        "arabic": "مُسْتَشْفَى",
+        "english": "hospital",
+        "translit": "mustashfā"
+      },
+      {
+        "arabic": "بَنْك",
+        "english": "bank",
+        "translit": "bank"
+      },
+      {
+        "arabic": "مَطْعَم",
+        "english": "restaurant",
+        "translit": "maṭʿam"
+      },
+      {
+        "arabic": "فُنْدُق",
+        "english": "hotel",
+        "translit": "funduq"
+      },
+      {
+        "arabic": "مَسْجِد",
+        "english": "mosque",
+        "translit": "masjid"
+      },
+      {
+        "arabic": "سُوق",
+        "english": "market",
+        "translit": "sūq"
+      },
+      {
+        "arabic": "مَطَار",
+        "english": "airport",
+        "translit": "maṭār"
+      }
+    ],
+    "Verbs": [
+      {
+        "arabic": "يَكُونُ",
+        "english": "to be",
+        "translit": "yakūn"
+      },
+      {
+        "arabic": "عِنْدَ",
+        "english": "to have (possession)",
+        "translit": "ʿinda"
+      },
+      {
+        "arabic": "ذَهَبَ",
+        "english": "to go",
+        "translit": "dhahaba"
+      },
+      {
+        "arabic": "أَتَى",
+        "english": "to come",
+        "translit": "atā"
+      },
+      {
+        "arabic": "أَكَلَ",
+        "english": "to eat",
+        "translit": "akala"
+      },
+      {
+        "arabic": "شَرِبَ",
+        "english": "to drink",
+        "translit": "shariba"
+      },
+      {
+        "arabic": "نامَ",
+        "english": "to sleep",
+        "translit": "nāma"
+      },
+      {
+        "arabic": "عَمِلَ",
+        "english": "to work",
+        "translit": "ʿamila"
+      },
+      {
+        "arabic": "دَرَسَ",
+        "english": "to study",
+        "translit": "darasa"
+      },
+      {
+        "arabic": "قَرَأَ",
+        "english": "to read",
+        "translit": "qara’a"
+      },
+      {
+        "arabic": "كَتَبَ",
+        "english": "to write",
+        "translit": "kataba"
+      },
+      {
+        "arabic": "أَحَبَّ",
+        "english": "to like / to love",
+        "translit": "aḥabba"
+      },
+      {
+        "arabic": "فَهِمَ",
+        "english": "to understand",
+        "translit": "fahima"
+      },
+      {
+        "arabic": "تَكَلَّمَ",
+        "english": "to speak",
+        "translit": "takallama"
+      },
+      {
+        "arabic": "سَكَنَ",
+        "english": "to live / to reside",
+        "translit": "sakana"
+      }
+    ],
+    "Family": [
+      {
+        "arabic": "أَب",
+        "english": "father",
+        "translit": "ab"
+      },
+      {
+        "arabic": "أُمّ",
+        "english": "mother",
+        "translit": "umm"
+      },
+      {
+        "arabic": "أَخ",
+        "english": "brother",
+        "translit": "akh"
+      },
+      {
+        "arabic": "أُخْت",
+        "english": "sister",
+        "translit": "ukht"
+      },
+      {
+        "arabic": "جَدّ",
+        "english": "grandfather",
+        "translit": "jadd"
+      },
+      {
+        "arabic": "جَدَّة",
+        "english": "grandmother",
+        "translit": "jaddah"
+      },
+      {
+        "arabic": "ابْن",
+        "english": "son",
+        "translit": "ibn"
+      },
+      {
+        "arabic": "بِنْت",
+        "english": "daughter",
+        "translit": "bint"
+      },
+      {
+        "arabic": "زَوْج",
+        "english": "husband",
+        "translit": "zawj"
+      },
+      {
+        "arabic": "زَوْجَة",
+        "english": "wife",
+        "translit": "zawjah"
+      },
+      {
+        "arabic": "عَائِلَة",
+        "english": "family",
+        "translit": "ʿāʾila"
+      }
+    ],
+    " Colors": [
+      {
+        "arabic": "أَحْمَر",
+        "english": "red",
+        "translit": "aḥmar"
+      },
+      {
+        "arabic": "أَزْرَق",
+        "english": "blue",
+        "translit": "azraq"
+      },
+      {
+        "arabic": "أَخْضَر",
+        "english": "green",
+        "translit": "akhḍar"
+      },
+      {
+        "arabic": "أَصْفَر",
+        "english": "yellow",
+        "translit": "aṣfar"
+      },
+      {
+        "arabic": "أَسْوَد",
+        "english": "black",
+        "translit": "aswad"
+      },
+      {
+        "arabic": "أَبْيَض",
+        "english": "white",
+        "translit": "abyaḍ"
+      },
+      {
+        "arabic": "بُنِّيّ",
+        "english": "brown",
+        "translit": "bunniyy"
+      },
+      {
+        "arabic": "بُرْتُقَالِيّ",
+        "english": "orange",
+        "translit": "burtuqālī"
+      }
+    ],
+    "Body Parts": [
+      {
+        "arabic": "رَأْس",
+        "english": "head",
+        "translit": "raʾs"
+      },
+      {
+        "arabic": "عَيْن",
+        "english": "eye",
+        "translit": "ʿayn"
+      },
+      {
+        "arabic": "أَنْف",
+        "english": "nose",
+        "translit": "anf"
+      },
+      {
+        "arabic": "فَم",
+        "english": "mouth",
+        "translit": "fam"
+      },
+      {
+        "arabic": "أُذُن",
+        "english": "ear",
+        "translit": "udhun"
+      },
+      {
+        "arabic": "يَد",
+        "english": "hand",
+        "translit": "yad"
+      },
+      {
+        "arabic": "رِجْل",
+        "english": "foot / leg",
+        "translit": "rijl"
+      },
+      {
+        "arabic": "شَعْر",
+        "english": "hair",
+        "translit": "shaʿr"
+      },
+      {
+        "arabic": "وَجْه",
+        "english": "face",
+        "translit": "wajh"
+      },
+      {
+        "arabic": "جِسْم",
+        "english": "body",
+        "translit": "jism"
+      }
+    ],
+    "Basic Adjectives": [
+  {
+    "arabic": "كَبِير",
+    "english": "big / large",
+    "translit": "kabīr"
+  },
+  {
+    "arabic": "صَغِير",
+    "english": "small / little",
+    "translit": "ṣaghīr"
+  },
+  {
+    "arabic": "جَيِّد",
+    "english": "good",
+    "translit": "jayyid"
+  },
+  {
+    "arabic": "سَيِّء",
+    "english": "bad",
+    "translit": "sayyiʾ"
+  },
+  {
+    "arabic": "جَدِيد",
+    "english": "new",
+    "translit": "jadīd"
+  },
+  {
+    "arabic": "قَدِيم",
+    "english": "old",
+    "translit": "qadīm"
+  },
+  {
+    "arabic": "طَوِيل",
+    "english": "long / tall",
+    "translit": "ṭawīl"
+  },
+  {
+    "arabic": "قَصِير",
+    "english": "short",
+    "translit": "qaṣīr"
+  },
+  {
+    "arabic": "جَمِيل",
+    "english": "beautiful / nice",
+    "translit": "jamīl"
+  }
+],
+"Pronouns": [
+  {
+    "arabic": "أَنَا",
+    "english": "I",
+    "translit": "anā"
+  },
+  {
+    "arabic": "أَنْتَ",
+    "english": "you (masculine singular)",
+    "translit": "anta"
+  },
+  {
+    "arabic": "أَنْتِ",
+    "english": "you (feminine singular)",
+    "translit": "anti"
+  },
+  {
+    "arabic": "هُوَ",
+    "english": "he / it (masculine)",
+    "translit": "huwa"
+  },
+  {
+    "arabic": "هِيَ",
+    "english": "she / it (feminine)",
+    "translit": "hiya"
+  },
+  {
+    "arabic": "نَحْنُ",
+    "english": "we",
+    "translit": "naḥnu"
+  },
+  {
+    "arabic": "أَنْتُمْ",
+    "english": "you (masculine plural)",
+    "translit": "antum"
+  },
+  {
+    "arabic": "أَنْتُنَّ",
+    "english": "you (feminine plural)",
+    "translit": "antunna"
+  },
+  {
+    "arabic": "هُمْ",
+    "english": "they (masculine)",
+    "translit": "hum"
+  },
+  {
+    "arabic": "هُنَّ",
+    "english": "they (feminine)",
+    "translit": "hunna"
+  }
+],
+"Question Words": [
+  {
+    "arabic": "مَنْ؟",
+    "english": "who?",
+    "translit": "man?"
+  },
+  {
+    "arabic": "مَا؟ / مَاذَا؟",
+    "english": "what?",
+    "translit": "mā? / mādhā?"
+  },
+  {
+    "arabic": "أَيْنَ؟",
+    "english": "where?",
+    "translit": "ayna?"
+  },
+  {
+    "arabic": "مَتَى؟",
+    "english": "when?",
+    "translit": "matā?"
+  },
+  {
+    "arabic": "كَيْفَ؟",
+    "english": "how?",
+    "translit": "kayfa?"
+  },
+  {
+    "arabic": "لِمَاذَا؟",
+    "english": "why?",
+    "translit": "limādhā?"
+  },
+  {
+    "arabic": "كَمْ؟",
+    "english": "how many? / how much?",
+    "translit": "kam?"
+  }
+]
+  },
+  "A2": {
+  "Food & Drinks": [
+    {
+      "arabic": "طَعَام",
+      "english": "food",
+      "translit": "ṭaʿām",
+      "quiz_questions": [
+      {
+        "type": "mcq",
+        "question": "ما معنى كلمة 'طَعَام'؟",
+        "correct": "food",
+        "options": ["drink", "food", "water", "house"]
+      }]
+    },
+    {
+      "arabic": "خُبْز",
+      "english": "bread",
+      "translit": "khubz",
+      "quiz_questions":[
+        {
+        "type": "fill_in_blank",
+        "question": "أحب أن آكل _____ مع الجبن في الإفطار.",
+        "correct": "خبز",
+        "hint": "common food with cheese"
+      }
+      ]
+    },
+    {
+      "arabic": "أَرُزّ",
+      "english": "rice",
+      "translit": "aruzz"
+    },
+    {
+      "arabic": "لَحْم",
+      "english": "meat",
+      "translit": "laḥm"
+    },
+    {
+      "arabic": "دَجَاج",
+      "english": "chicken",
+      "translit": "dajāj",
+      "quiz_questions":[
+        {
+        "type": "mcq",
+        "question": "Which Arabic word means 'chicken'?",
+        "correct": "دَجَاج",
+        "options": ["سمك", "لحم", "دجاج", "بيض"]
+      }
+      ]
+    },
+    {
+      "arabic": "سَمَك",
+      "english": "fish",
+      "translit": "samak"
+    },
+    {
+      "arabic": "بَيْض",
+      "english": "egg",
+      "translit": "bayḍ"
+    },
+    {
+      "arabic": "خُضَار",
+      "english": "vegetables",
+      "translit": "khuḍār",
+      "quiz_questions":[
+        {
+        "type": "fill_in_blank",
+        "question": "السلطة تحتوي على _____ كثيرة.",
+        "correct": "خضار",
+        "hint": "plural form used for many vegetables"
+      }
+      ]
+    },
+    {
+      "arabic": "فَاكِهَة",
+      "english": "fruit",
+      "translit": "fākiha",
+      "quiz_questions":[
+        {
+        "type": "mcq",
+        "question": "Which word means 'fruit' in Arabic?",
+        "correct": "فَاكِهَة",
+        "options": ["خضار", "فاكهة", "لحم", "سمك"]
+      }
+      ]
+    },
+    {
+      "arabic": "مَاء",
+      "english": "water",
+      "translit": "māʾ"
+    },
+    {
+      "arabic": "شَاي",
+      "english": "tea",
+      "translit": "shāy"
+    },
+    {
+      "arabic": "قَهْوَة",
+      "english": "coffee",
+      "translit": "qahwa",
+      "quiz_questions": [
+      {
+        "type": "mcq",
+        "question": "'قَهْوَة' تعني؟",
+        "correct": "coffee",
+        "options": ["tea", "water", "coffee", "juice"]
+      }]
+    }
+  ],
+  "Daily Routine & Time Expressions": [
+    {
+      "arabic": "أَسْتَيْقِظُ",
+      "english": "I wake up",
+      "translit": "astayqiẓu"
+    },
+    {
+      "arabic": "أَتَنَاوَلُ الْإِفْطَارَ",
+      "english": "I have breakfast / I eat breakfast",
+      "translit": "atanāwalu al-ifṭāra"
+    },
+    {
+      "arabic": "أَذْهَبُ إِلَى الْعَمَلِ",
+      "english": "I go to work",
+      "translit": "adhhabu ilā al-ʿamali"
+    },
+    {
+      "arabic": "أَدْرُسُ / أَعْمَلُ",
+      "english": "I study / I work",
+      "translit": "adrusu / aʿmalu"
+    },
+    {
+      "arabic": "أَعُودُ إِلَى الْبَيْتِ",
+      "english": "I return home",
+      "translit": "aʿūdu ilā al-bayti"
+    },
+    {
+      "arabic": "أَنَامُ",
+      "english": "I sleep / go to bed",
+      "translit": "anāmu"
+    },
+    {
+      "arabic": "كُلَّ يَوْمٍ",
+      "english": "every day",
+      "translit": "kulla yawmin"
+    },
+    {
+      "arabic": "دَائِمًا",
+      "english": "always",
+      "translit": "dāʾiman"
+    },
+    {
+      "arabic": "أَحْيَانًا",
+      "english": "sometimes",
+      "translit": "aḥyānan"
+    },
+    {
+      "arabic": "فِي الصَّبَاحِ",
+      "english": "in the morning",
+      "translit": "fī aṣ-ṣabāḥi"
+    },
+    {
+      "arabic": "فِي الْمَسَاءِ",
+      "english": "in the evening",
+      "translit": "fī al-masāʾi"
+    },
+    {
+      "arabic": "بَعْدَ الظُّهْرِ",
+      "english": "in the afternoon",
+      "translit": "baʿda aẓ-ẓuhri"
+    },
+    {
+      "arabic": "الْبَارِحَة",
+      "english": "yesterday / last night",
+      "translit": "al-bāriḥa"
+    }
+  ],
+  "Clothes": [
+    {
+      "arabic": "قَمِيص",
+      "english": "shirt",
+      "translit": "qamīṣ"
+    },
+    {
+      "arabic": "بَنْطَلُون",
+      "english": "pants",
+      "translit": "banṭalūn"
+    },
+    {
+      "arabic": "فُسْتَان",
+      "english": "dress",
+      "translit": "fustān"
+    },
+    {
+      "arabic": "سُتْرَة",
+      "english": "jacket",
+      "translit": "sutrah"
+    },
+    {
+      "arabic": "حَذَاء",
+      "english": "shoes",
+      "translit": "ḥadhāʾ"
+    },
+    {
+      "arabic": "قُبَّعَة",
+      "english": "hat",
+      "translit": "qubbaʿah"
+    },
+    {
+      "arabic": "جَوْرَب",
+      "english": "sock",
+      "translit": "jawrab"
+    },
+    {
+      "arabic": "مَلَابِس",
+      "english": "clothes",
+      "translit": "malābis"
+    }
+  ],
+  "Shopping": [
+    {
+      "arabic": "كَمْ سِعْرُ هَذَا؟",
+      "english": "How much is this?",
+      "translit": "kam siʿru hādhā?"
+    },
+    {
+      "arabic": "سِعْر",
+      "english": "price",
+      "translit": "siʿr"
+    },
+    {
+      "arabic": "غَالٍ",
+      "english": "expensive",
+      "translit": "ghālin"
+    },
+    {
+      "arabic": "رَخِيص",
+      "english": "cheap",
+      "translit": "rakhīṣ"
+    },
+    {
+      "arabic": "حَجْم / مَقَاس",
+      "english": "size",
+      "translit": "ḥajm / maqās"
+    },
+    {
+      "arabic": "بَائِع",
+      "english": "salesperson / seller",
+      "translit": "bāʾiʿ"
+    },
+    {
+      "arabic": "مَتْجَر",
+      "english": "shop / store",
+      "translit": "matjar"
+    },
+    {
+      "arabic": "تَخْفِيض / تَنْزِيلَات",
+      "english": "discount / sale",
+      "translit": "takhfīḍ / tanzīlāt"
+    },
+    {
+      "arabic": "نَقْدًا",
+      "english": "cash",
+      "translit": "naqdan"
+    },
+    {
+      "arabic": "بِطَاقَة",
+      "english": "card",
+      "translit": "biṭāqah"
+    }
+  ],
+  "House & Furniture": [
+    {
+      "arabic": "غُرْفَة",
+      "english": "room",
+      "translit": "ghurfa"
+    },
+    {
+      "arabic": "غُرْفَةُ نَوْم",
+      "english": "bedroom",
+      "translit": "ghurfat nawm"
+    },
+    {
+      "arabic": "غُرْفَةُ جُلُوس / صَالُون",
+      "english": "living room",
+      "translit": "ghurfat julūs / ṣālūn"
+    },
+    {
+      "arabic": "مَطْبَخ",
+      "english": "kitchen",
+      "translit": "maṭbakh"
+    },
+    {
+      "arabic": "حَمَّام",
+      "english": "bathroom",
+      "translit": "ḥammām"
+    },
+    {
+      "arabic": "غُرْفَةُ طَعَام",
+      "english": "dining room",
+      "translit": "ghurfat ṭaʿām"
+    },
+    {
+      "arabic": "سَرِير",
+      "english": "bed",
+      "translit": "sarīr"
+    },
+    {
+      "arabic": "طَاوِلَة",
+      "english": "table",
+      "translit": "ṭāwila"
+    },
+    {
+      "arabic": "كُرْسِيّ",
+      "english": "chair",
+      "translit": "kursiyy"
+    },
+    {
+      "arabic": "خِزَانَة",
+      "english": "closet",
+      "translit": "khizāna"
+    },
+    {
+      "arabic": "مَصْبَاح",
+      "english": "lamp",
+      "translit": "maṣbāḥ"
+    }
+  ],
+  "Weather & Seasons": [
+    {
+      "arabic": "الرَّبِيع",
+      "english": "spring",
+      "translit": "ar-rabīʿ"
+    },
+    {
+      "arabic": "الصَّيْف",
+      "english": "summer",
+      "translit": "aṣ-ṣayf"
+    },
+    {
+      "arabic": "الْخَرِيف",
+      "english": "autumn / fall",
+      "translit": "al-kharīf"
+    },
+    {
+      "arabic": "الْشِّتَاء",
+      "english": "winter",
+      "translit": "ash-shitāʾ"
+    },
+    {
+      "arabic": "الْجَوُّ حَارٌّ",
+      "english": "The weather is hot",
+      "translit": "al-jawwu ḥārrun"
+    },
+    {
+      "arabic": "الْجَوُّ بَارِدٌ",
+      "english": "The weather is cold",
+      "translit": "al-jawwu bāridun"
+    },
+    {
+      "arabic": "الْجَوُّ مُمْطِرٌ",
+      "english": "The weather is rainy",
+      "translit": "al-jawwu mumṭirun"
+    },
+    {
+      "arabic": "الْجَوُّ مُشْمِسٌ",
+      "english": "The weather is sunny",
+      "translit": "al-jawwu mushmisun"
+    },
+    {
+      "arabic": "الْجَوُّ غَائِمٌ",
+      "english": "The weather is cloudy",
+      "translit": "al-jawwu ghāʾimun"
+    },
+    {
+      "arabic": "الْجَوُّ مُعْتَدِلٌ",
+      "english": "The weather is mild",
+      "translit": "al-jawwu muʿtadilun"
+    }
+  ],
+  "Jobs": [
+  {
+    "arabic": "طَبِيب / طَبِيبَة",
+    "english": "doctor",
+    "translit": "ṭabīb / ṭabība"
+  },
+  {
+    "arabic": "مُدَرِّس / مُدَرِّسَة",
+    "english": "teacher",
+    "translit": "mudarris / mudarrisa"
+  },
+  {
+    "arabic": "مُهَنْدِس / مُهَنْدِسَة",
+    "english": "engineer",
+    "translit": "muhandis / muhandisa"
+  },
+  {
+    "arabic": "مُوَظَّف / مُوَظَّفَة",
+    "english": "employee / office worker",
+    "translit": "muwaẓẓaf / muwaẓẓafa"
+  },
+  {
+    "arabic": "طَالِب / طَالِبَة",
+    "english": "student",
+    "translit": "ṭālib / ṭāliba"
+  },
+  {
+    "arabic": "مُدِير / مُدِيرَة",
+    "english": "manager",
+    "translit": "mudīr / mudīra"
+  }
+],
+"Hobbies": [
+  {
+    "arabic": "هِوَايَة / هِوَايَات",
+    "english": "hobby / hobbies",
+    "translit": "hiwāya / hiwāyāt"
+  },
+  {
+    "arabic": "وَقْتُ الْفَرَاغ",
+    "english": "free time",
+    "translit": "waqtu al-farāgh"
+  },
+  {
+    "arabic": "الْقِرَاءَة",
+    "english": "reading",
+    "translit": "al-qirāʾa"
+  },
+  {
+    "arabic": "الرِّيَاضَة",
+    "english": "sports / exercise",
+    "translit": "ar-riyāḍa"
+  },
+  {
+    "arabic": "الرَّسْم",
+    "english": "drawing / painting",
+    "translit": "ar-rasm"
+  },
+  {
+    "arabic": "الطَّبْخ",
+    "english": "cooking",
+    "translit": "aṭ-ṭabkh"
+  },
+  {
+    "arabic": "السِّبَاحَة",
+    "english": "swimming",
+    "translit": "as-sibāḥa"
+  },
+  {
+    "arabic": "الاِسْتِمَاعُ إِلَى الْمُوسِيقَى",
+    "english": "listening to music",
+    "translit": "al-istimāʿu ilā al-mūsīqā"
+  }
+],
+"Expression": [
+  {
+    "arabic": "أُحِبُّ",
+    "english": "I like / I love",
+    "translit": "uḥibbu"
+  },
+  {
+    "arabic": "لَا أُحِبُّ",
+    "english": "I don't like",
+    "translit": "lā uḥibbu"
+  },
+  {
+    "arabic": "أُفَضِّلُ",
+    "english": "I prefer",
+    "translit": "ufaddilu"
+  }
+],
+"Places": [
+  {
+    "arabic": "مَدْرَسَة",
+    "english": "school",
+    "translit": "madrasa"
+  },
+  {
+    "arabic": "جَامِعَة",
+    "english": "university",
+    "translit": "jāmiʿa"
+  },
+  {
+    "arabic": "صَيْدَلِيَّة",
+    "english": "pharmacy",
+    "translit": "ṣaydaliyya"
+  },
+  {
+    "arabic": "مَحَطَّة",
+    "english": "station (bus/train)",
+    "translit": "maḥaṭṭa"
+  },
+  {
+    "arabic": "حَدِيقَة",
+    "english": "park / garden",
+    "translit": "ḥadīqa"
+  },
+  {
+    "arabic": "شَارِع",
+    "english": "street",
+    "translit": "shāriʿ"
+  }
+],
+"Directions": [
+  {
+    "arabic": "يَمِين",
+    "english": "right",
+    "translit": "yamīn"
+  },
+  {
+    "arabic": "يَسَار",
+    "english": "left",
+    "translit": "yasār"
+  },
+  {
+    "arabic": "مُقَابِل",
+    "english": "opposite / in front of",
+    "translit": "muqābil"
+  },
+  {
+    "arabic": "قَرِيب مِنْ",
+    "english": "near / close to",
+    "translit": "qarīb min"
+  },
+  {
+    "arabic": "بَعِيد عَنْ",
+    "english": "far from",
+    "translit": "baʿīd ʿan"
+  },
+  {
+    "arabic": "مُسْتَقِيم",
+    "english": "straight ahead",
+    "translit": "mustaqīm"
+  }
+],
+"Health": [
+  {
+    "arabic": "أَشْعُرُ بِـ",
+    "english": "I feel",
+    "translit": "ashʿuru bi-"
+  },
+  {
+    "arabic": "مَرِيض",
+    "english": "sick",
+    "translit": "marīḍ"
+  },
+  {
+    "arabic": "تَعَبَان",
+    "english": "tired",
+    "translit": "taʿabān"
+  },
+  {
+    "arabic": "صُدَاع",
+    "english": "headache",
+    "translit": "ṣudāʿ"
+  },
+  {
+    "arabic": "بَرْد",
+    "english": "cold",
+    "translit": "bard"
+  },
+  {
+    "arabic": "حُمَّى",
+    "english": "fever",
+    "translit": "ḥummā"
+  },
+  {
+    "arabic": "أَلَم",
+    "english": "pain",
+    "translit": "alam"
+  },
+  {
+    "arabic": "دَوَاء",
+    "english": "medicine",
+    "translit": "dawāʾ"
+  },
+  {
+    "arabic": "صَيْدَلِيَّة",
+    "english": "pharmacy",
+    "translit": "ṣaydaliyya"
+  },
+  {
+    "arabic": "طَبِيب",
+    "english": "doctor",
+    "translit": "ṭabīb"
+  }
+],
+"Basic Connectors": [
+  {
+    "arabic": "وَ",
+    "english": "and",
+    "translit": "wa"
+  },
+  {
+    "arabic": "أَوْ",
+    "english": "or",
+    "translit": "aw"
+  },
+  {
+    "arabic": "لَكِنْ",
+    "english": "but",
+    "translit": "lakin"
+  },
+  {
+    "arabic": "لِأَنَّ",
+    "english": "because",
+    "translit": "li-anna"
+  },
+  {
+    "arabic": "إِذَا",
+    "english": "if",
+    "translit": "idhā"
+  },
+  {
+    "arabic": "ثُمَّ",
+    "english": "then",
+    "translit": "thumma"
+  },
+  {
+    "arabic": "بَعْدَ ذَلِكَ",
+    "english": "after that",
+    "translit": "baʿda dhālika"
+  },
+  {
+    "arabic": "أَوَّلًا",
+    "english": "firstly",
+    "translit": "awwalan"
+  },
+  {
+    "arabic": "أَخِيرًا",
+    "english": "finally",
+    "translit": "akhīran"
+  },
+  {
+    "arabic": "قَبْل",
+    "english": "before",
+    "translit": "qabl"
+  },
+  {
+    "arabic": "مُنْذُ",
+    "english": "ago / since",
+    "translit": "mundhu"
+  },
+  {
+    "arabic": "فَجْأَةً",
+    "english": "suddenly",
+    "translit": "faj’atan"
+  }
+],
+"Verbs": [
+  {
+    "arabic": "يُرِيدُ",
+    "english": "to want",
+    "translit": "yurīdu"
+  },
+  {
+    "arabic": "يَسْتَطِيعُ",
+    "english": "to be able to / can",
+    "translit": "yastaṭīʿu"
+  },
+  {
+    "arabic": "يَبْدَأُ",
+    "english": "to start / begin",
+    "translit": "yabdaʾu"
+  },
+  {
+    "arabic": "يَنْتَهِي",
+    "english": "to finish / end",
+    "translit": "yantahī"
+  },
+  {
+    "arabic": "يَحْتَاجُ",
+    "english": "to need",
+    "translit": "yaḥtāju"
+  },
+  {
+    "arabic": "يَشْتَرِي",
+    "english": "to buy",
+    "translit": "yashtarī"
+  },
+  {
+    "arabic": "يَبِيعُ",
+    "english": "to sell",
+    "translit": "yabīʿu"
+  },
+  {
+    "arabic": "يَتَكَلَّمُ",
+    "english": "to speak (ongoing)",
+    "translit": "yatakallamu"
+  },
+  {
+    "arabic": "يَعْرِفُ",
+    "english": "to know",
+    "translit": "yaʿrifu"
+  },
+  {
+    "arabic": "يَجْلِسُ",
+    "english": "to sit",
+    "translit": "yajlisu"
+  }
+]
+},
+"B1": {
+  "Past Tense Verbs": [
+    {
+      "arabic": "ذَهَبْتُ",
+      "english": "I went",
+      "translit": "dhahabtu"
+    },
+    {
+      "arabic": "زُرْتُ",
+      "english": "I visited",
+      "translit": "zurtu"
+    },
+    {
+      "arabic": "شَاهَدْتُ",
+      "english": "I watched",
+      "translit": "shāhadtu"
+    },
+    {
+      "arabic": "اشْتَرَيْتُ",
+      "english": "I bought",
+      "translit": "ishtaraytu"
+    },
+    {
+      "arabic": "تَعَلَّمْتُ",
+      "english": "I learned",
+      "translit": "taʿallamtu"
+    },
+    {
+      "arabic": "قَابَلْتُ",
+      "english": "I met",
+      "translit": "qābaltu"
+    },
+    {
+      "arabic": "كَانَ",
+      "english": "was / were (he/it was)",
+      "translit": "kāna"
+    },
+    {
+      "arabic": "أَمْسِ / الْبَارِحَة",
+      "english": "yesterday",
+      "translit": "amsi / al-bāriḥa"
+    },
+    {
+      "arabic": "الْأُسْبُوعُ الْمَاضِي",
+      "english": "last week",
+      "translit": "al-usbūʿ al-māḍī"
+    },
+    {
+      "arabic": "فِي الْبِدَايَةِ",
+      "english": "at first / in the beginning",
+      "translit": "fī al-bidāyati"
+    },
+    {
+      "arabic": "فِي النِّهَايَةِ",
+      "english": "in the end / finally",
+      "translit": "fī an-nihāyati"
+    }
+  ],
+  "Opinions": [
+    {
+      "arabic": "أَظُنُّ أَنَّ",
+      "english": "I think that",
+      "translit": "aẓunnu anna"
+    },
+    {
+      "arabic": "فِي رَأْيِي",
+      "english": "in my opinion",
+      "translit": "fī raʾyī"
+    },
+    {
+      "arabic": "أَعْتَقِدُ أَنَّ",
+      "english": "I believe that",
+      "translit": "aʿtaqidu anna"
+    },
+    {
+      "arabic": "أُفَضِّلُ",
+      "english": "I prefer",
+      "translit": "ufaddilu"
+    },
+    {
+      "arabic": "أَحِبُّ جِدًّا",
+      "english": "I really like / love",
+      "translit": "uḥibbu jiddan"
+    },
+    {
+      "arabic": "لَا أُحِبُّ كَثِيرًا",
+      "english": "I don't like much",
+      "translit": "lā uḥibbu kathīran"
+    },
+    {
+      "arabic": "لِأَنَّ",
+      "english": "because",
+      "translit": "li-anna"
+    },
+    {
+      "arabic": "لِذَلِكَ",
+      "english": "therefore / that's why",
+      "translit": "li-dhālika"
+    },
+    {
+      "arabic": "أَتَّفِقُ مَعَكَ",
+      "english": "I agree with you",
+      "translit": "attafiq maʿaka"
+    },
+    {
+      "arabic": "أَخْتَلِفُ مَعَكَ",
+      "english": "I disagree with you",
+      "translit": "akhtalifu maʿaka"
+    },
+    {
+      "arabic": "مِنْ نَاحِيَةٍ أُخْرَى",
+      "english": "on the other hand",
+      "translit": "min nāḥiyatin ukhrā"
+    },
+    {
+      "arabic": "مَا رَأْيُكَ فِي...؟",
+      "english": "What do you think about...?",
+      "translit": "mā raʾyuka fī...?"
+    }
+  ],
+  "Time Expressions & Sequencing": [
+    {
+      "arabic": "الْأُسْبُوعُ الْمَاضِي",
+      "english": "last week",
+      "translit": "al-usbūʿ al-māḍī"
+    },
+    {
+      "arabic": "الشَّهْرُ الْمَاضِي",
+      "english": "last month",
+      "translit": "ash-shahr al-māḍī"
+    },
+    {
+      "arabic": "السَّنَةُ الْمَاضِيَةُ",
+      "english": "last year",
+      "translit": "as-sanah al-māḍiya"
+    },
+    {
+      "arabic": "مُؤَخَّرًا / حَدِيثًا",
+      "english": "recently",
+      "translit": "muʾakhkharan / ḥadīthan"
+    },
+    {
+      "arabic": "مُنْذُ أُسْبُوعَيْنِ",
+      "english": "two weeks ago",
+      "translit": "mundhu usbūʿayn"
+    },
+    {
+      "arabic": "قَبْلَ سَنَةٍ",
+      "english": "a year ago",
+      "translit": "qabla sanah"
+    },
+    {
+      "arabic": "خِلَالَ",
+      "english": "during",
+      "translit": "khilāla"
+    },
+    {
+      "arabic": "بَيْنَمَا",
+      "english": "while",
+      "translit": "baynamā"
+    },
+    {
+      "arabic": "بَعْدَ أَنْ",
+      "english": "after (that)",
+      "translit": "baʿda an"
+    },
+    {
+      "arabic": "قَبْلَ أَنْ",
+      "english": "before (that)",
+      "translit": "qabla an"
+    },
+    {
+      "arabic": "فِي الْوَقْتِ نَفْسِهِ",
+      "english": "at the same time",
+      "translit": "fī al-waqt nafsihi"
+    },
+    {
+      "arabic": "فِي الْمُسْتَقْبَلِ",
+      "english": "in the future",
+      "translit": "fī al-mustaqbal"
+    }
+  ],
+  "Media, News & Technology": [
+    {
+      "arabic": "الْإِنْتَرْنِت",
+      "english": "the internet",
+      "translit": "al-internet"
+    },
+    {
+      "arabic": "الْهَاتِفُ الذَّكِيُّ",
+      "english": "smartphone",
+      "translit": "al-hātif adh-dhakiyy"
+    },
+    {
+      "arabic": "وَسَائِلُ التَّوَاصُلِ الاجْتِمَاعِيِّ",
+      "english": "social media",
+      "translit": "wasāʾil at-tawāṣul al-ijtimāʿiyy"
+    },
+    {
+      "arabic": "الْأَخْبَارُ",
+      "english": "news",
+      "translit": "al-akhbār"
+    },
+    {
+      "arabic": "الْجَرِيدَةُ",
+      "english": "newspaper",
+      "translit": "al-jarīda"
+    },
+    {
+      "arabic": "الْقَنَاةُ التِّلْفَازِيَّةُ",
+      "english": "TV channel",
+      "translit": "al-qanāh at-tilfāziyya"
+    },
+    {
+      "arabic": "بَرْنَامِج",
+      "english": "program / show",
+      "translit": "barnāmij"
+    },
+    {
+      "arabic": "يَتَابِعُ الْأَخْبَارَ",
+      "english": "follows the news",
+      "translit": "yatābiʿu al-akhbār"
+    },
+    {
+      "arabic": "يَقْرَأُ الْأَخْبَارَ عَلَى الْإِنْتَرْنِت",
+      "english": "reads the news on the internet",
+      "translit": "yaqraʾu al-akhbār ʿalā al-internet"
+    },
+    {
+      "arabic": "مُفِيدٌ",
+      "english": "useful",
+      "translit": "mufīd"
+    },
+    {
+      "arabic": "يُؤَثِّرُ عَلَى",
+      "english": "affects / influences",
+      "translit": "yuʾaththiru ʿalā"
+    },
+    {
+      "arabic": "ضَارٌّ",
+      "english": "harmful",
+      "translit": "ḍārr"
+    }
+  ],
+  "Work & Education": [
+  {
+    "arabic": "مَهَارَة / مَهَارَات",
+    "english": "skill / skills",
+    "translit": "mahāra / mahārāt"
+  },
+  {
+    "arabic": "مُؤَهِّلَات",
+    "english": "qualifications",
+    "translit": "muʾahhilāt"
+  },
+  {
+    "arabic": "شَهَادَة",
+    "english": "certificate / degree",
+    "translit": "shahāda"
+  },
+  {
+    "arabic": "دَوْرَة تَدْرِيبِيَّة",
+    "english": "training course",
+    "translit": "dawra tadrībiyya"
+  },
+  {
+    "arabic": "مُقَابَلَة عَمَل",
+    "english": "job interview",
+    "translit": "muqābala ʿamal"
+  },
+  {
+    "arabic": "مَسْؤُولِيَّة",
+    "english": "responsibility",
+    "translit": "masʾūliyya"
+  },
+  {
+    "arabic": "فَرِيق عَمَل",
+    "english": "team",
+    "translit": "farīq ʿamal"
+  },
+  {
+    "arabic": "يَعْمَلُ بِجِدٍّ",
+    "english": "works hard",
+    "translit": "yaʿmalu bijidd"
+  },
+  {
+    "arabic": "يَطْمَحُ إِلَى",
+    "english": "aspires to",
+    "translit": "yaṭmaḥu ilā"
+  },
+  {
+    "arabic": "فِي الْمُسْتَقْبَلِ أُرِيدُ أَنْ",
+    "english": "in the future I want to",
+    "translit": "fī al-mustaqbal urīdu an"
+  },
+  {
+    "arabic": "مَجَال الْعَمَل",
+    "english": "field of work / profession",
+    "translit": "majāla al-ʿamal"
+  },
+  {
+    "arabic": "تَخَصُّص",
+    "english": "major / specialization",
+    "translit": "takhaṣṣuṣ"
+  }
+],
+"Health": [
+  {
+    "arabic": "أَشْعُرُ بِالْإِرْهَاقِ",
+    "english": "I feel exhausted",
+    "translit": "ashʿuru bil-irhāq"
+  },
+  {
+    "arabic": "أَعَانِي مِنْ",
+    "english": "I suffer from",
+    "translit": "aʿānī min"
+  },
+  {
+    "arabic": "الْإِجْهَاد",
+    "english": "stress",
+    "translit": "al-ijhād"
+  },
+  {
+    "arabic": "الْأَرَق",
+    "english": "insomnia",
+    "translit": "al-araq"
+  },
+  {
+    "arabic": "زِيَادَةُ الْوَزْنِ",
+    "english": "weight gain",
+    "translit": "ziyādat al-wazn"
+  },
+  {
+    "arabic": "نَقْصُ الطَّاقَةِ",
+    "english": "lack of energy",
+    "translit": "naqṣ aṭ-ṭāqa"
+  },
+  {
+    "arabic": "يَجِبُ أَنْ تَرْتَاحَ",
+    "english": "You should rest",
+    "translit": "yajibu an tartāḥa"
+  },
+  {
+    "arabic": "مِنَ الْأَفْضَلِ أَنْ",
+    "english": "It's better to",
+    "translit": "min al-afḍal an"
+  },
+  {
+    "arabic": "أَنْصَحُكَ بِـ",
+    "english": "I advise you to",
+    "translit": "anṣaḥuka bi-"
+  },
+  {
+    "arabic": "يَوْمِيًّا",
+    "english": "daily / every day",
+    "translit": "yawmiyyan"
+  },
+  {
+    "arabic": "يُؤَثِّرُ سَلْبًا عَلَى",
+    "english": "negatively affects",
+    "translit": "yuʾaththiru salban ʿalā"
+  },
+  {
+    "arabic": "كَيْفَ تَشْعُرُ الْيَوْمَ؟",
+    "english": "How do you feel today?",
+    "translit": "kayfa tashʿuru al-yawma?"
+  }
+],
+"Environment & Nature": [
+  {
+    "arabic": "الْبِيئَةُ الطَّبِيعِيَّةُ",
+    "english": "natural environment",
+    "translit": "al-bīʾa aṭ-ṭabīʿiyya"
+  },
+  {
+    "arabic": "الْتَّلَوُّثُ الْبِيئِيُّ",
+    "english": "environmental pollution",
+    "translit": "at-talawwuth al-bīʾiyy"
+  },
+  {
+    "arabic": "الْمَطَرُ الْحَمْضِيُّ",
+    "english": "acid rain",
+    "translit": "al-maṭar al-ḥamḍiyy"
+  },
+  {
+    "arabic": "الْحَيَوَانَاتُ الْمُهَدَّدَةُ بِالانْقِرَاضِ",
+    "english": "endangered animals",
+    "translit": "al-ḥayawānāt al-muhaddada bil-inqirāḍ"
+  },
+  {
+    "arabic": "الْغَابَاتُ",
+    "english": "forests",
+    "translit": "al-ghābāt"
+  },
+  {
+    "arabic": "النَّبَاتَاتُ",
+    "english": "plants",
+    "translit": "an-nabātāt"
+  },
+  {
+    "arabic": "يُلَوِّثُ",
+    "english": "pollutes",
+    "translit": "yulawwiṭhu"
+  },
+  {
+    "arabic": "يُسَاعِدُ فِي حِمَايَةِ",
+    "english": "helps in protecting",
+    "translit": "yusāʿidu fī ḥimāyat"
+  },
+  {
+    "arabic": "مُضِرٌّ بِالْبِيئَةِ",
+    "english": "harmful to the environment",
+    "translit": "muḍirr bil-bīʾa"
+  },
+  {
+    "arabic": "مُفِيدٌ لِلطَّبِيعَةِ",
+    "english": "beneficial for nature",
+    "translit": "mufīd lil-ṭabīʿa"
+  }
+],
+"Travel & Holidays": [
+  {
+    "arabic": "رِحْلَة / عُطْلَة",
+    "english": "trip / holiday / vacation",
+    "translit": "riḥla / ʿuṭla"
+  },
+  {
+    "arabic": "حَجْز",
+    "english": "booking / reservation",
+    "translit": "ḥajz"
+  },
+  {
+    "arabic": "تَذْكِرَة",
+    "english": "ticket",
+    "translit": "tadhkira"
+  },
+  {
+    "arabic": "فُنْدُق",
+    "english": "hotel",
+    "translit": "funduq / muntajaʿ"
+  },
+  {
+    "arabic": "شَاطِئ",
+    "english": "beach",
+    "translit": "shāṭiʾ"
+  },
+  {
+    "arabic": "جَبَل / جِبَال",
+    "english": "mountain / mountains",
+    "translit": "jabal / jibāl"
+  },
+  {
+    "arabic": "زُرْتُ",
+    "english": "I visited (past)",
+    "translit": "zurtu"
+  },
+  {
+    "arabic": "أَخْطَطُ لِلسَّفَرِ إِلَى",
+    "english": "I plan to travel to",
+    "translit": "ukhtiṭṭu lis-safari ilā"
+  },
+  {
+    "arabic": "كَانَتْ رِحْلَةً رَائِعَةً",
+    "english": "It was a wonderful trip",
+    "translit": "kānat riḥlatan rāʾiʿatan"
+  },
+  {
+    "arabic": "أَنْصَحُ بِزِيَارَةِ",
+    "english": "I recommend visiting",
+    "translit": "anṣaḥu biziyārati"
+  }
+],
+"Future Tense Verbs": [
+  {
+    "arabic": "سَيَأْخُذُ",
+    "english": "will take",
+    "translit": "sayaʾkhudhu"
+  },
+  {
+    "arabic": "سَيُعْطِي",
+    "english": "will give",
+    "translit": "sayuʿṭī"
+  },
+  {
+    "arabic": "سَيَجِيءُ",
+    "english": "will come",
+    "translit": "sayajīʾu"
+  },
+  {
+    "arabic": "سَيَرْجِعُ",
+    "english": "will return",
+    "translit": "sayarjiʿu"
+  },
+  {
+    "arabic": "سَيَحْصُلُ عَلَى",
+    "english": "will obtain / will get",
+    "translit": "sayaḥṣulu ʿalā"
+  },
+  {
+    "arabic": "سَيَبْقَى",
+    "english": "will stay / will remain",
+    "translit": "sayabqā"
+  },
+  {
+    "arabic": "سَيَقْدِرُ",
+    "english": "will be able to",
+    "translit": "sayaqdiru"
+  },
+  {
+    "arabic": "سَيُصْبِحُ",
+    "english": "will become",
+    "translit": "sayuṣbiḥu"
+  },
+  {
+    "arabic": "سَيَسْتَمِرُّ",
+    "english": "will continue",
+    "translit": "sayastamirr"
+  },
+  {
+    "arabic": "سَيَتَوَقَّفُ",
+    "english": "will stop",
+    "translit": "sayatawaqqafu"
+  }
+]
+}
+}
