@@ -2,7 +2,7 @@ import streamlit as st
 from openai import OpenAI 
 import tempfile
 from db_setup import ( save_conversation_message, load_conversation_history, clear_conversation_history, save_conversation_memory, load_conversation_memory, clear_conversation_memory, require_login)
-
+import os
 
 client = OpenAI(api_key=os.getenv("OpenAI_Capstone_key"))
 

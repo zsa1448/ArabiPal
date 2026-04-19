@@ -281,10 +281,28 @@ with col_next:
 if "quiz_active" in st.session_state and st.session_state.quiz_active:
     if st.session_state.quiz_index >= 6:
         final_score = st.session_state.quiz_correct
-        st.success(f" Thnak you for taking the quiz ! Your score : {final_score}/6")
+        st.success(f" Thnak you for taking the quiz")
+        score_html = f"""
+                <div style="
+                    background:#FFFAE5;
+                    padding:12px 16px;
+                    border-radius:10px;
+                    margin-top:16px;
+                    border:1px solid #FCF3C7;
+                    font-size:18px;
+                    color:#475569;
+                ">
+                    <span style="font-weight:800;">Score:</span>
+                    <span style="font-weight:900; color:#4f46e5; margin-left:6px;">
+                        {final_score} / 
+                    </span>
+                </div>
+                """
+        st.markdown(score_html, unsafe_allow_html=True)
         st.session_state.quiz_active = False
-        
-        for key in ["quiz_questions", "quiz_index", "quiz_correct","current_q_type", "direction"]:
+
+
+        for key in ["quiz_questions", "quiz_index", "quiz_correct","current_q_type", "direction", "quiz_feedback"]:
             st.session_state.pop(key, None)
         
         if st.button(" Back to vocabulary words "):
@@ -297,12 +315,25 @@ if "quiz_active" in st.session_state and st.session_state.quiz_active:
         st.session_state.quiz_questions = random.sample(words, 6)
         st.session_state.quiz_index = 0
         st.session_state.quiz_correct = 0
+        learned_in_category = []
+        for w in words:   # 'words' is already the prioritized list for this category
+            if is_word_learned(user_id, w["arabic"]):
+                learned_in_category.append(w)
 
+        num_questions = min(6, len(learned_in_category))
+        st.session_state.quiz_questions = random.sample(learned_in_category, num_questions)
+        st.session_state.quiz_index = 0
+        st.session_state.quiz_correct = 0
+    
+    if "quiz_feedback" not in st.session_state:
+        st.session_state.quiz_feedback = None
+    
     if "current_q_type" not in st.session_state:
         st.session_state.current_q_type = random.choice(["mcq", "fill"])
 # i have added both en to ar and ar to en for recall which is better
     if "direction" not in st.session_state:
         st.session_state.direction = random.choice(["ar_to_en", "en_to_ar"])
+        
 
     q_type = st.session_state.current_q_type
     direction = st.session_state.direction
@@ -316,38 +347,44 @@ if "quiz_active" in st.session_state and st.session_state.quiz_active:
         if direction == "ar_to_en":
             st.write(f"ما معنى الكلمة **{arabic}** ؟")
             correct = english
-            options = [correct ] + random.sample([w["english"] for w in words if w["english"] != english], 3)
-            random.shuffle(options)
+            pool = [w["english"] for w in words if w["english"] != english]
         else:
             st.write(f"What is the Arabic word for **{english}**?")
             correct = arabic
-            options = [correct] + random.sample([w["arabic"] for w in words if w["arabic"] != correct], 3)
+            pool = [w["arabic"] for w in words if w["arabic"] != arabic]
+            
+        if "current_options" not in st.session_state:
+            sampled = random.sample(pool, min(3, len(pool)))
+            options = [correct] + sampled
             random.shuffle(options)
+            st.session_state.current_options = options
+        else:
+            options = st.session_state.current_options
+            
+        if st.session_state.quiz_feedback is None:    
+            for opt in options:
+                if st.button(opt, use_container_width=True):
+                    if opt == correct:
+                        st.session_state.quiz_correct += 1
+                        mark_word_correct(user_id, arabic)
+                        st.session_state.quiz_feedback = ("correct", correct)
+                    else:
+                        st.session_state.quiz_feedback = ("wrong", correct)
 
-        for opt in options:
-            if st.button(opt, use_container_width=True):
-                if opt == correct:
-                    st.session_state.quiz_correct += 1
-                    mark_word_correct(user_id, arabic)
-                    st.success("Correct answer!")
-                else:
-                    st.error(f"Wrong! Correct answer: {correct}")
-
-                st.session_state.quiz_index += 1    
+        if st.session_state.quiz_feedback:
+            status, correct_answer = st.session_state.quiz_feedback
+            if status == "correct":
+                st.success("Correct answer!")
+            else:
+                st.error(f"Incorrect ❌ (Answer: {correct_answer})")
+            
+            if st.button("Next Question"):
+                st.session_state.quiz_index += 1
+                st.session_state.quiz_feedback = None
                 st.session_state.current_q_type = random.choice(["mcq", "fill"])
                 st.session_state.direction = random.choice(["ar_to_en", "en_to_ar"])
+                st.session_state.pop("current_options", None)
                 st.rerun()
-
-            #answer = st.radio(" Choose the correct answer:", options, index=None, key=f"mcq_{st.session_state.quiz_index}")
-            #if st.button(" Submit answer "):
-                #if answer == english:
-                    #st.session_state.quiz_correct += 1
-                    #mark_word_correct(user_id, arabic)
-                    #st.success("Correct answer !")
-                #else:
-                    #st.error(f"Wrong answer, correct meaning is: {english}")
-                #st.session_state.quiz_index += 1
-                #st.rerun()
 
     # Question 2: Fill-in-the-blank 
     elif q_type == "fill":
@@ -359,19 +396,31 @@ if "quiz_active" in st.session_state and st.session_state.quiz_active:
             correct = english
             
         user_ans = st.text_input("Your answer:", key=f"fill_{st.session_state.quiz_index}")
-        if st.button(" Submit answer "):
-            if not user_ans.strip():
-                st.warning("Please enter an answer")
-                st.stop()
-                
-            if normalize_arabic(user_ans) == normalize_arabic(correct):
-                st.session_state.quiz_correct += 1
-                mark_word_correct(user_id, arabic)
-                st.success("correct answer !")
+        if st.session_state.quiz_feedback is None:
+            if st.button(" Submit answer "):
+                if not user_ans.strip():
+                    st.warning("Please enter an answer")
+                else:
+                    if normalize_arabic(user_ans) == normalize_arabic(correct):
+                        st.session_state.quiz_correct += 1
+                        mark_word_correct(user_id, arabic)
+                        st.session_state.quiz_feedback = ("correct", correct)
+                    else:
+                        st.session_state.quiz_feedback = ("wrong", correct)
+                        
+        if st.session_state.quiz_feedback:
+            status, correct_answer = st.session_state.quiz_feedback
+        
+            if status == "correct":
+                st.success("Correct answer!")
             else:
-                st.error(f"Wrong answer, correct meaning is:  {arabic}")
+                st.error(f"Incorrect ❌ (Answer: {correct_answer})")
+        
+            if st.button("Next Question"):
+                st.session_state.quiz_index += 1
+                st.session_state.quiz_feedback = None
+                st.session_state.current_q_type = random.choice(["mcq", "fill"])
+                st.session_state.direction = random.choice(["ar_to_en", "en_to_ar"])
+                st.rerun()
 
-            st.session_state.quiz_index += 1
-            st.session_state.current_q_type = random.choice(["mcq", "fill"])
-            st.session_state.direction = random.choice(["ar_to_en", "en_to_ar"])
-            st.rerun()
+            

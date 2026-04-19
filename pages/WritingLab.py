@@ -185,7 +185,7 @@ def extract_weak_vocab(mistakes):
 def load_vocab_data():
     try:
         base_dir = os.path.dirname(os.path.dirname(__file__)) 
-        file_path = os.path.join(base_dir, "vocabulary_data.json")
+        file_path = os.path.join(base_dir, "data/vocabulary_data.json")
         
         with open(file_path, "r", encoding="utf-8") as f:  
             data = json.load(f)

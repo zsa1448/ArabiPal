@@ -632,13 +632,12 @@ elif st.session_state.view == "read":
                 for f in feedback:
                     is_correct = f["is_correct"]
                     background = "#ecfdf5" if is_correct else "#fef2f2"
-                    border = "#16a34a" if is_correct else "#dc2626"
+                    #border = "#16a34a" if is_correct else "#dc2626"
                     text = "#065f46" if is_correct else "#7f1d1d"
                 
                     st.markdown(f"""
                     <div style="
                         background:{background};
-                        border:5px solid {border};
                         padding:12px 14px;
                         border-radius:10px;
                         margin-top:10px;
