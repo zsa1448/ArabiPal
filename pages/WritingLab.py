@@ -7,12 +7,13 @@ import re
 import os
 from sentence_transformers import SentenceTransformer, util
 import difflib
-
+from googleapiclient.discovery import build
 
 client = OpenAI(api_key=os.getenv("OpenAI_Capstone_key"))
+API_key=
+youtube = build("youtube", "v3", developerKey=os.getenv('Youtube_API_Key'))
 
 init_db()
-
 @st.cache_resource
 def load_embedding_model():
     try:
@@ -558,7 +559,7 @@ with tab1:
                         st.session_state.checked = False
                         st.rerun()
         else:
-            st.success("Practice Session Complete 🎉")
+            st.success("Practice Session Complete ")
 
             score = st.session_state.score
             total = len(st.session_state.exercises)
@@ -789,7 +790,7 @@ with tab2:
             unsafe_allow_html=True)
         st.markdown("### 📝 Detailed Mistake Analysis")
         if data["mistakes"]:
-            st.info(f"Most common issue: {data['mistakes'][0]['explanation']}")
+            #st.info(f"Most common issue: {data['mistakes'][0]['explanation']}")    
             for m in data["mistakes"]:
                 save_user_mistake(
                     user_id=user_id,
@@ -798,6 +799,7 @@ with tab2:
                     explanation=m["explanation"],
                     module="free_writing"
                 )
+                
 
                 st.markdown(
                     f"""
@@ -826,7 +828,93 @@ with tab2:
                     </div>
                     """,
                     unsafe_allow_html=True)
+                
+            all_explanations = " ".join([m["explanation"] for m in data["mistakes"]])
+            learning_prompt = f"""
+                You are an Arabic language teaching assistant.
+                
+                Student level: {user_level}
+                
+                Analyze these grammar mistake explanations:
+                
+                {all_explanations}
 
+                CRITICAL RULES:
+                - You MUST ONLY generate topics about MODERN STANDARD ARABIC (MSA)
+                - You MUST NOT include any other language (French, English grammar, etc.)
+                - You MUST NOT output general language learning
+                - You MUST NOT include examples from other languages
+                - Output must be ONLY about Arabic grammar
+                
+                TASK:
+                1. Identify the MAIN grammar weakness
+                2. Convert it into a SHORT learning topic for YouTube search 
+                3. Make it suitable for CEFR level {user_level}
+                4. Keep it under 8 words
+                5. Return ONLY the learning topic NOTHING else
+
+               VALID OUTPUT EXAMPLES: 
+                - Arabic verb conjugation present tense 
+                - Arabic sentence structure basics 
+                - Arabic hamza rules beginner
+
+                INVALID OUTPUT (DO NOT PRODUCE):
+                - French verbs
+                - English grammar
+                - General linguistics
+                """
+            learning_response = client.chat.completions.create(
+                    model="gpt-4o-mini",
+                    messages=[{"role": "user", "content": learning_prompt}],
+                    temperature=0.0,
+                    max_tokens=50
+                )
+
+            learning_topic = learning_response.choices[0].message.content.strip()
+            
+
+
+            #query_prompt = f"""
+            #Turn this into a YouTube search query:
+            
+            #Topic: {learning_topic}
+            #Level: {user_level}
+            
+            #Rules:
+            #- max 10 words
+            #- must be searchable
+            #- include "Arabic grammar" if possible
+            
+            #Return ONLY the query NOTHING else.
+            #"""
+            
+            #query_response = client.chat.completions.create(
+                #model="gpt-4o-mini",
+                #messages=[{"role": "user", "content": query_prompt}],
+                #temperature=0.0,
+                #max_tokens=50
+            #)
+            #search_query = query_response.choices[0].message.content.strip()
+
+            search_query = f"Arabic grammar {learning_topic} {user_level}"
+
+            st.info(f"Learning topic: {learning_topic}")
+            request = youtube.search().list(
+                    q=search_query,
+                    part="snippet",
+                    maxResults=3,
+                    type="video"
+                )
+
+            response = request.execute()
+            
+            st.markdown("### 🎬 Recommended Learning Videos")
+            for item in response["items"]:
+                video_id = item["id"]["videoId"]
+                title = item["snippet"]["title"]
+                thumbnail = item["snippet"]["thumbnails"]["high"]["url"]
+            
+                st.video(f"https://www.youtube.com/watch?v={video_id}", width=500)
         else:
             st.success("No mistakes found. Great writing! 🎉")
 

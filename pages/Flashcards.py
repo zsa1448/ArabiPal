@@ -300,8 +300,6 @@ if "quiz_active" in st.session_state and st.session_state.quiz_active:
                 """
         st.markdown(score_html, unsafe_allow_html=True)
         st.session_state.quiz_active = False
-
-
         for key in ["quiz_questions", "quiz_index", "quiz_correct","current_q_type", "direction", "quiz_feedback"]:
             st.session_state.pop(key, None)
         
@@ -310,7 +308,6 @@ if "quiz_active" in st.session_state and st.session_state.quiz_active:
         st.stop()
         
     st.subheader(f"Quick quiz – Question {st.session_state.quiz_index + 1} of 6")
-
     if "quiz_questions" not in st.session_state or not st.session_state.quiz_questions:
         st.session_state.quiz_questions = random.sample(words, 6)
         st.session_state.quiz_index = 0
@@ -333,16 +330,14 @@ if "quiz_active" in st.session_state and st.session_state.quiz_active:
 # i have added both en to ar and ar to en for recall which is better
     if "direction" not in st.session_state:
         st.session_state.direction = random.choice(["ar_to_en", "en_to_ar"])
-        
 
     q_type = st.session_state.current_q_type
     direction = st.session_state.direction
-
     q_word = st.session_state.quiz_questions[st.session_state.quiz_index]
     arabic = q_word["arabic"]
     english = q_word["english"]
 
-    # Question 1: MCQ – Choose correct meaning
+    # Question 1: MCQ 
     if q_type == "mcq":
         if direction == "ar_to_en":
             st.write(f"ما معنى الكلمة **{arabic}** ؟")
@@ -386,7 +381,7 @@ if "quiz_active" in st.session_state and st.session_state.quiz_active:
                 st.session_state.pop("current_options", None)
                 st.rerun()
 
-    # Question 2: Fill-in-the-blank 
+    # Question 2: Fill in blank
     elif q_type == "fill":
         if direction == "en_to_ar":
             st.write(f"اكتب الكلمة العربية التي تعني **{english}**")

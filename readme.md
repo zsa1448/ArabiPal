@@ -69,6 +69,10 @@ Basic phoneme-aware feedback for difficult Arabic sounds
 1. Improve pronunciation scoring using advanced dedicated models (phoneme-level)
 2. Include more curated learning resources (grammar explanations, videos, articles, books)
 3. Add a comprehensive Progress History dashboard with trends and statistics over time
+
+## Video Demo 
+https://canva.link/e9t1p5c1zieek0s
+
    
 
    

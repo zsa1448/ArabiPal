@@ -147,7 +147,7 @@ def calculate_score(expected, actual, vocab_word, user_id=None):
     if not vocab_in_transcript:
         score -= 0.25
 
-    # 5. Memory-aware penalty
+    # Memory-aware penalty
     try:
         if user_id:
             mistakes = get_user_mistakes(user_id)
@@ -208,7 +208,6 @@ if "user" not in st.session_state or "level" not in st.session_state.user:
 user_id = st.session_state.user["id"]
 user_level = st.session_state.user["level"]
 
-# 1- speaking session when word from flashcards if coming from there
 target_word = st.session_state.get("speaking_target_word", None)
 st.markdown(""" Practice speaking Arabic out loud with short exercises. Read each word or sentence, say it clearly, and get instant feedback on your pronunciation. Focus on being clear, not perfect. """)
 
@@ -217,7 +216,7 @@ if st.button(" Start Speaking ", type="primary"):
         selected_words = [target_word]
         is_from_flashcard = True
     else:
-        # Standalone not from flashcard
+        # not from flashcard
         learned_words = get_learned_words(user_id, user_level)
         if not learned_words:
             st.warning(" You have not learned any vocabulary words, start learning words from the vocabulary lab ")
@@ -274,7 +273,6 @@ if st.button(" Start Speaking ", type="primary"):
     st.session_state.speaking_index = 0
     st.rerun()
 
-#ecercises display
 if "speaking_exercises" in st.session_state and st.session_state.speaking_exercises:
     idx = st.session_state.speaking_index
     exercises = st.session_state.speaking_exercises

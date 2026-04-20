@@ -119,14 +119,6 @@ mode = st.radio("Choose Mode:",
 if not st.session_state.started:
     st.button("Start Practice Session", type="primary", on_click=lambda: st.session_state.update({"started": True}))
     st.stop()
-    
-
-#if "dictation_words" not in st.session_state:
-    #st.session_state.dictation_words = random.sample(vocab_list, min(4, len(vocab_list)))
-    #st.session_state.index = 0
-    #st.session_state.score = 0
-    #st.session_state.checked = False
-
 if "dictation_items" not in st.session_state:
     selected_words = random.sample(vocab_list, min(4, len(vocab_list)))
     if mode == "Word Dictation":
