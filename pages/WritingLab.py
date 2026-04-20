@@ -10,7 +10,6 @@ import difflib
 from googleapiclient.discovery import build
 
 client = OpenAI(api_key=os.getenv("OpenAI_Capstone_key"))
-API_key=
 youtube = build("youtube", "v3", developerKey=os.getenv('Youtube_API_Key'))
 
 init_db()
@@ -166,19 +165,17 @@ def is_vocab_used(vocab_word, user_text):
     vocab_clean = normalize_arabic(vocab_word)
     user_clean = normalize_arabic(user_text)
     if vocab_clean in user_clean:
-        return True
-    #  fallback similarity 
+        return True 
     similarity = difflib.SequenceMatcher(None, vocab_clean, user_clean).ratio()
     if similarity >= 0.6:
         return True
     return False
 
-# this function i sto use user mistakes again for better learning
+
 def extract_weak_vocab(mistakes):
     weak_words = []
     for m in mistakes:
         correct = normalize_arabic(m["correct_word"])
-        # filter junk like prepositions letters
         if len(correct.split()) <= 2:
             weak_words.append(correct)
     return list(set(weak_words))
@@ -207,7 +204,7 @@ def load_vocab_data():
 #user_level = st.session_state.user["level"]
 user_id, user_level = require_login()
 
-#get the vocab that hs been learned the writing module is connected to vocab module
+
 learned_words = get_learned_words(user_id, user_level)
 vocab_list = [w["word_ar"] for w in learned_words] if learned_words else []
 
@@ -252,7 +249,7 @@ with tab1:
         else:  # B1+
             max_words = 8
             structure_hint = "Use a natural sentence with more detail, such as adjectives, time expressions, or reasons."
-        #replace in the prompt the "maximum.." with Maximum {max_words} words. as well as add the structure guidance : (structure hint}
+        
 
         with st.spinner("Generating exercises..."):
 
@@ -385,10 +382,8 @@ with tab1:
                             correct_words = correct_clean.split()
                             user_words = user_clean.split()
             
-                            #vocab_present = is_vocab_used(vocab_word, user_words)
                             vocab_present = is_vocab_used(vocab_word, user_answer)
-                            #word_overlap = len(set(user_words) & set(correct_words))
-                            #similarity = word_overlap / max(len(correct_words), 1)
+    
                             if model is not None:
                                 emb1 = model.encode(correct_clean, convert_to_tensor=True)
                                 emb2 = model.encode(user_clean, convert_to_tensor=True)
@@ -789,8 +784,7 @@ with tab2:
             """,
             unsafe_allow_html=True)
         st.markdown("### 📝 Detailed Mistake Analysis")
-        if data["mistakes"]:
-            #st.info(f"Most common issue: {data['mistakes'][0]['explanation']}")    
+        if data["mistakes"]: 
             for m in data["mistakes"]:
                 save_user_mistake(
                     user_id=user_id,

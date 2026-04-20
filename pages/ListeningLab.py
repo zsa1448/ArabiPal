@@ -119,11 +119,11 @@ mode = st.radio("Choose Mode:",
 if not st.session_state.started:
     st.button("Start Practice Session", type="primary", on_click=lambda: st.session_state.update({"started": True}))
     st.stop()
+
 if "dictation_items" not in st.session_state:
     selected_words = random.sample(vocab_list, min(4, len(vocab_list)))
     if mode == "Word Dictation":
         st.session_state.dictation_items = selected_words
-
     else: 
         items = []
         for word in selected_words:
@@ -166,11 +166,6 @@ if "dictation_items" not in st.session_state:
             - Avoid rare or difficult words
             - Avoid long or complex verb forms
             - Avoid ambiguous word order
-            - Prefer familiar expressions like:
-              - في البيت
-              - في المدرسة
-              - اليوم
-              - مع صديقي
             
             GOOD EXAMPLE:
             Arabic: انا ادرس في البيت اليوم
@@ -186,8 +181,6 @@ if "dictation_items" not in st.session_state:
             - No diacritics in Arabic
             - Sentence is easy to understand when heard
             - Vocabulary word is included EXACTLY
-
-            
 
             Return VALID JSON only:
             {{
@@ -220,10 +213,7 @@ idx = st.session_state.index
 items = st.session_state.dictation_items
 
 if idx <len(items):
-    #vocab_word = words[idx]
-
     st.progress((idx + 1) / len(items))
-    #st.markdown(f"### Word {idx+1} / {len(words)}")
     if mode == "Word Dictation":
         vocab_word = items[idx]
         st.markdown(f"### Word {idx+1} / {len(items)}")
@@ -243,7 +233,6 @@ if idx <len(items):
     
         tts = client.audio.speech.create(model="gpt-4o-mini-tts", voice="alloy", input=sentence)
         st.audio(tts.read(), format="audio/mp3")
-
 
     if st.button("💡 English Hint"):
         if mode == "Word Dictation":
@@ -267,7 +256,6 @@ if idx <len(items):
                         st.session_state.vocab_lookup[vocab_word] = english_hint
                     except:
                         st.warning("Could not retrieve translation.")
-    
         else:
             english_hint = english_hint_sen
         if english_hint:

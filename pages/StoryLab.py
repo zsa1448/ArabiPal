@@ -13,15 +13,12 @@ init_db()
 
 client = OpenAI(api_key=os.getenv("OpenAI_Capstone_key"))
 
-# i will have two views 1- view for the story and one create for the mystoryies and create tab
 if "view" not in st.session_state:
     st.session_state.view = "create"
-    
-#function to dispaly story, split story each sentnec in one line, split words, translate each unique word
+
 def display_full_story(title, story_text, user_level):
     st.markdown(f'<div class="story-title">{title}</div>', unsafe_allow_html=True)
     sentences = re.split(r'(?<=[.؟!])\s+', story_text.strip())
-    # Pre-translate all unique words (do this once, quietly)
     unique_words = set()
     for sentence in sentences:
             words = re.findall(r'\S+', sentence)
@@ -45,7 +42,6 @@ def display_full_story(title, story_text, user_level):
                         st.session_state[f"trans_{clean_w}"] = translation
                     except:
                         st.session_state[f"trans_{clean_w}"] = " No translation  "
-    # trasnlation will be like tooltip? kinda wen you hover it will show
     interactive_html = []
     for sent_idx, sentence in enumerate(sentences):
         words = re.findall(r'\S+', sentence)
@@ -177,7 +173,7 @@ st.markdown(
 
 user_level = st.session_state.user["level"]
 user_id = st.session_state.user["id"]
-#reuse the vocabs learned (vocab integration)
+
 learned_words = get_learned_words(user_id, user_level)
 vocab_list = [w["word_ar"] for w in learned_words]
 
@@ -316,7 +312,6 @@ if st.session_state.view == "create":
                     st.session_state.generated_title = title
                     st.session_state.generated_vocab = key_vocab
                     st.session_state.last_generated_topic = topic
-                    #save story and its vocab so when we come from mystories tab
                     story_id= save_story( 
                         user_id=user_id,
                         title=title,

@@ -130,24 +130,20 @@ def calculate_score(expected, actual, vocab_word, user_id=None):
         else:
             word_matches.append((exp_word, False))
 
-    # word accuracy
     word_score = sum(1 for _, m in word_matches if m) / len(expected_words)
-    # Order 
     order_score = 1.0
     if len(matched_positions) > 1:
         correct_order = sum( 1 for i in range(len(matched_positions) - 1) if matched_positions[i] < matched_positions[i + 1] )
         order_score = correct_order / (len(matched_positions) - 1)
+        
     score = (0.75 * word_score) + (0.25 * order_score)
 
-    #  Extra words 
     extra_words = max(0, len(actual_words) - len(expected_words))
     score -= extra_words * 0.05
-    # Vocab penalty
+
     vocab_in_transcript = any( difflib.SequenceMatcher(None, vocab_word, w).ratio() >= 0.75 for w in actual_words )
     if not vocab_in_transcript:
         score -= 0.25
-
-    # Memory-aware penalty
     try:
         if user_id:
             mistakes = get_user_mistakes(user_id)
@@ -171,12 +167,9 @@ def pronunciation_issues(expected_words, actual_words):
             if similarity > best_similarity:
                 best_similarity = similarity
                 best_match = act_word
-
-        # weak similarity
         if best_similarity < 0.85 and best_match:
             diff = difflib.ndiff(exp_word, best_match)
             for d in diff:
-                # missing from speech
                 if d.startswith("- "):  
                     letter = d[-1]
                     problematic_letters[letter] = problematic_letters.get(letter, 0) + 1
@@ -216,7 +209,6 @@ if st.button(" Start Speaking ", type="primary"):
         selected_words = [target_word]
         is_from_flashcard = True
     else:
-        # not from flashcard
         learned_words = get_learned_words(user_id, user_level)
         if not learned_words:
             st.warning(" You have not learned any vocabulary words, start learning words from the vocabulary lab ")

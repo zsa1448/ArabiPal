@@ -46,7 +46,7 @@ Practice real-life Arabic conversations with different interactive scenarios. Re
 """)
 st.divider()
 
-#login & check if there is saved translation, scenario, messages history
+
 user_id, user_level = require_login()
 
 if "scenario" not in st.session_state:
@@ -67,7 +67,7 @@ if "conversation_memory" not in st.session_state:
 if "last_audio_bytes" not in st.session_state:
     st.session_state.last_audio_bytes = None
 
-#clear conversation--> clear messages, memory, tranlsation scenario started willl be false
+
 with st.sidebar:
     st.markdown("### ⚙️ Settings")
     if st.button(" Clear Conversation ", use_container_width=True):
@@ -79,7 +79,6 @@ with st.sidebar:
         st.session_state.scenario_started = False
         st.rerun()
 
-#scenario instruction, will display for the user in the chat
 scenario_instructions = {
     "Normal Conversation": "Have a free conversation with the AI tutor.",
     "Meeting Someone": " You are meeting with someone for the first time. Start with a friendly greeting and start with small talk",
@@ -90,7 +89,7 @@ scenario_instructions = {
     "Hotel":"You are checking into a hotel. Talk about your reservation and ask for basic information about your stay."
 }
 
-#parse the reply of ai if tehre is correction and reason to be in different display style the the reply
+
 def parse_assistant_response(response):
     correction = None
     reason = None
@@ -195,7 +194,7 @@ def build_system_prompt(level,scenario, memory):
 
     return base_prompt + "\n" + scenario_roles.get(scenario, "You are having a normal Arabic conversation.")
 
-# update conversation memory with user, messages and ai reply
+
 def update_conversation_memory(user_message, ai_reply):
     try:
         resp = client.chat.completions.create(
@@ -207,7 +206,6 @@ def update_conversation_memory(user_message, ai_reply):
                 { "role": "user", "content": f"User: {user_message}\nTutor: {ai_reply}"}])
 
         memory = resp.choices[0].message.content.strip()
-
         if memory and len(st.session_state.conversation_memory) < 5:
             if memory not in st.session_state.conversation_memory:
                 st.session_state.conversation_memory.append(memory)
@@ -219,7 +217,6 @@ def generate_ai_response(user_message):
     system_prompt = build_system_prompt(user_level, st.session_state.scenario, st.session_state.conversation_memory )
     conversation = [{"role": "system", "content": system_prompt}]
 
-    # only 10 because to limit api usage lol
     for msg in st.session_state.messages[-10:]:
         conversation.append({"role": msg["role"], "content": msg["content"] })
     conversation.append({"role": "user", "content": user_message})
@@ -344,7 +341,6 @@ for idx, msg in enumerate(st.session_state.messages):
 )
         else:
             st.markdown(msg["content"])
-        #this is teh audio for the ai reply an additional to the translation
         if role == "assistant" and "audio" in msg:
             st.audio(msg["audio"], format="audio/mp3", autoplay=True)
             
@@ -361,7 +357,6 @@ for idx, msg in enumerate(st.session_state.messages):
                     st.rerun()
 
 st.divider()
-# i added the option for the user to type or talk for this chatbot
 col1, col2 = st.columns([6, 1])
 with col1:
     user_text = st.chat_input(" 💬 Write your message here")
