@@ -1,9 +1,9 @@
 import streamlit as st
 import sqlite3
-from db_setup import get_user_mistakes, delete_user_mistake, get_learned_words,  get_mastered_words_count,  get_total_words_in_level, count_words_to_review,get_read_stories_count, get_writing_sessions_count, get_writing_exercises_count, get_conversation_days, get_conversation_scenarios, get_writing_accuracy, get_speaking_sessions_count, get_speaking_accuracy, get_level_progress, unlock_next_level, require_login
+from db_setup import get_user_mistakes, delete_user_mistake, get_learned_words,  get_mastered_words_count,  get_total_words_in_level, count_words_to_review,get_read_stories_count, get_writing_sessions_count, get_writing_exercises_count, get_conversation_days, get_conversation_scenarios, get_writing_accuracy, get_speaking_sessions_count, get_speaking_accuracy, get_level_progress, unlock_next_level, require_login, listening_accuracy, listening_sessions_count,listening_exercises_count, init_db
 import streamlit.components.v1 as components
 
-
+init_db()
 st.markdown("""
     <link href="https://fonts.googleapis.com/css2?family=Lora&family=Nunito&display=swap" rel="stylesheet">
     <style>
@@ -124,6 +124,7 @@ def unlock_requirements(user_level):
         st.write("- 8 stories completed")
         st.write("- 8 speaking sessions")
         st.write("- 12 writing exercises")
+        st.write("- 8 listening exercises")
         st.write("- 5 conversation sessions + 2 scenarios")
 
     elif user_level == "A2":
@@ -133,6 +134,7 @@ def unlock_requirements(user_level):
         st.write("- 12 stories completed")
         st.write("- 14 speaking sessions")
         st.write("- 18 writing exercises")
+        st.write("- 14 listening exercises")
         st.write("- 10 conversation sessions + all scenarios")
 
 user_id, user_level = require_login()
@@ -202,6 +204,11 @@ writing_session = get_writing_sessions_count(user_id)
 exercises_count = get_writing_exercises_count(user_id)
 writing_accuracy, correct_count, writing_attempts = get_writing_accuracy(user_id)
 
+# listening module
+listening_accuracy, listening_attempts = listening_accuracy(user_id)
+listening_exercises = listening_exercises_count(user_id)
+listening_sessions = listening_sessions_count(user_id)
+
 #convo module
 conversation_days = get_conversation_days(user_id)
 conversation_scenarios = get_conversation_scenarios(user_id)
@@ -248,6 +255,20 @@ with col_w3:
     st.markdown("<br>", unsafe_allow_html=True)
     st.markdown("<br>", unsafe_allow_html=True)
     st.metric("Writing Accuracy", f"{writing_accuracy}%", f"{correct_count}/{writing_attempts}")
+    
+st.markdown('<hr class="sectiondivider">', unsafe_allow_html=True)
+col_l1, col_l2, col_l3 = st.columns(3)
+with col_l1:
+    st.markdown('<div class="sectiontitle"> Listening</div>', unsafe_allow_html=True)
+    st.metric("Sessions Completed", listening_sessions)
+with col_l2:
+    st.markdown("<br>", unsafe_allow_html=True)
+    st.markdown("<br>", unsafe_allow_html=True)
+    st.metric("Exercises Done", listening_exercises)
+with col_l3:
+    st.markdown("<br>", unsafe_allow_html=True)
+    st.markdown("<br>", unsafe_allow_html=True)
+    st.metric("Avg. Listening Accuracy", f"{listening_accuracy}%", f" {listening_attempts} attempts")
 
 st.markdown('<hr class="sectiondivider">', unsafe_allow_html=True)
 col1, col2 = st.columns(2)
@@ -391,5 +412,6 @@ with col1:
 with col2:
     module_card("Speaking", "🗣️", "Practice speaking Arabic, get instant feedbak and speaking accuracy score", "pages/SpeakingLab.py", "speak")
     module_card( "Writing", "✍️", "Practice writing and get instant corrections & feedback", "pages/WritingLab.py", "write" )
+    module_card("Listening", "🎧", "Train your Listening skills by listening and writing what you hear", "pages/ListeningLab.py", "listen")
 
    

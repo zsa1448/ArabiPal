@@ -194,7 +194,21 @@ def init_db():
     CREATE INDEX IF NOT EXISTS idx_story_vocab_story
     ON story_vocab(story_id)
 ''')
+   #listening module
+   
+    c.execute('''
+        CREATE TABLE IF NOT EXISTS listening_attempts (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            user_id INTEGER NOT NULL,
+            vocab_word TEXT NOT NULL,
+            user_answer TEXT,
+            is_correct BOOLEAN DEFAULT FALSE,
+            created_at TEXT DEFAULT CURRENT_TIMESTAMP,
+            FOREIGN KEY (user_id) REFERENCES users(id)
+        )
+    ''')
     
+    c.execute('CREATE INDEX IF NOT EXISTS idx_listening_user ON listening_attempts(user_id)')
     conn.commit()
     conn.close()
     print(f"Database initialized: {DB_FILE}")
@@ -691,7 +705,61 @@ def get_speaking_accuracy(user_id):
         return accuracy, row['total']
     return 0, 0
 
+#listening module
+def save_listening_attempt(user_id, vocab_word, user_answer, is_correct):
+    conn = get_connection()
+    c = conn.cursor()
+    c.execute('''
+        INSERT INTO listening_attempts 
+        (user_id, vocab_word, user_answer, is_correct, created_at)
+        VALUES (?, ?, ?, ?, ?) ''', (user_id, vocab_word, user_answer, is_correct, datetime.now().isoformat()))
+    conn.commit()
+    conn.close()
 
+
+def listening_sessions_count(user_id):
+    conn = get_connection()
+    c = conn.cursor()
+    c.execute('''
+        SELECT COUNT(DISTINCT DATE(created_at))
+        FROM listening_attempts
+        WHERE user_id = ?
+    ''', (user_id,))
+    count = c.fetchone()[0]
+    conn.close()
+    return count if count is not None else 0
+
+
+def listening_exercises_count(user_id):
+    """Count total listening exercises attempted"""
+    conn = get_connection()
+    c = conn.cursor()
+    c.execute('''
+        SELECT COUNT(*) FROM listening_attempts WHERE user_id = ?
+    ''', (user_id,))
+    count = c.fetchone()[0]
+    conn.close()
+    return count
+
+
+def listening_accuracy(user_id):
+    """Return average listening accuracy and total attempts"""
+    conn = get_connection()
+    c = conn.cursor()
+    c.execute('''
+        SELECT 
+            COUNT(CASE WHEN is_correct = 1 THEN 1 END) as correct,
+            COUNT(*) as total
+        FROM listening_attempts
+        WHERE user_id = ?
+    ''', (user_id,))
+    row = c.fetchone()
+    conn.close()
+    
+    if row and row['total'] > 0:
+        accuracy = int((row['correct'] / row['total']) * 100)
+        return accuracy, row['total']
+    return 0, 0
 
 #how to unlock next level, here alogic that i simply did:
 def unlock_next_level(user_id):
@@ -725,17 +793,18 @@ def unlock_next_level(user_id):
     # Conversation
     conversation_sessions = get_conversation_days(user_id)
     unique_scenarios = get_conversation_scenarios(user_id)
+    listening_sessions = listening_sessions_count(user_id)
     
     next_level = None
     
     if current_level == "A1":
         if (learned_percent >= 70 and mastered_percent >= 30 and stories_completed >= 8 and speaking_sessions >= 8 and
-            writing_exercises >= 12 and  conversation_sessions >= 5 and unique_scenarios >= 2):
+            writing_exercises >= 12 and  conversation_sessions >= 5 and unique_scenarios >= 2 and listening_sessions >= 8):
             next_level = "A2"
             
     elif current_level == "A2":
         if (learned_percent >= 80 and mastered_percent >= 50 and stories_completed >= 12 and speaking_sessions >= 14 and
-            writing_exercises >= 18 and conversation_sessions >= 10 and unique_scenarios >= 7):   # assuming you have 3 scenarios
+            writing_exercises >= 18 and conversation_sessions >= 10 and unique_scenarios >= 7 and listening_sessions >= 14):
             next_level = "B1"  
     if next_level:
         return next_level
@@ -770,13 +839,17 @@ def get_level_progress(user_id, current_level):
             min(100, unique_scenarios / 2 * 100) * 0.3
         )
 
+        listening_sessions = listening_sessions_count(user_id)
+
         overall = (
             learned_progress * 0.35 +
             mastered_progress * 0.15 +
             reading_progress * 0.20 +
             speaking_progress * 0.15 +
             writing_progress * 0.10 +
-            conversation_progress * 0.05
+            conversation_progress * 0.05 +
+            (listening_sessions / 8 * 100) * 0.05
+            
         )
 
     elif current_level == "A2":
@@ -798,7 +871,8 @@ def get_level_progress(user_id, current_level):
             reading_progress * 0.10 +
             speaking_progress * 0.15 +
             writing_progress * 0.10 +
-            conversation_progress * 0.10
+            conversation_progress * 0.10 +
+            (listening_sessions / 14 * 100) * 0.05
         )
 
     else:

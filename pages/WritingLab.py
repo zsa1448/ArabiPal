@@ -217,7 +217,7 @@ with tab1:
     st.subheader("Guided Writing")
     mode = st.radio(
         "Choose Practice Mode:",
-        ["Vocabulary Dictation","Sentence Translation", "Word Ordering"], horizontal=True )
+        ["Sentence Translation", "Word Ordering"], horizontal=True )
 
     if st.button("Start Practice Session", type="primary"):
 
@@ -352,79 +352,6 @@ with tab1:
             st.progress((idx + 1) / len(exercises))
             st.markdown(f"""### Exercise {idx+1} / {len(exercises)}""")
             st.divider()
-
-            # Vocabulary Dictation
-            if mode == "Vocabulary Dictation":
-                st.info("🔊 Listen and write the Arabic word")
-
-                tts = client.audio.speech.create( model="gpt-4o-mini-tts", voice="alloy", input=vocab_word )
-                st.audio(tts.read(), format="audio/mp3")
-                
-                if st.button("💡English Hint"):
-                    english_hint = arabic_to_english.get(vocab_word)
-                    if english_hint:
-                        st.write(f"English: {english_hint}")
-                    else:
-                        #st.warning("English translation not found")
-                        with st.spinner("Getting translation..."):
-                            try:
-                                prompt = f"""
-                                Translate the following Arabic word to natural English.
-                                Word: {vocab_word}
-                                Return ONLY the English translation, NOTHING else.
-                                """
-                                response = client.chat.completions.create(
-                                    model="gpt-4o-mini",
-                                    messages=[{"role": "user", "content": prompt}],
-                                    max_tokens=30,
-                                    temperature=0.3
-                                )
-                                english_hint = response.choices[0].message.content.strip()
-                                st.write(f"English: {english_hint}")
-                            except:
-                                st.warning("Could not retrieve translation at this time.")
-
-                user_answer = st.text_input("Write the Arabic word", placeholder="Type Arabic word...", key=f"dictation_input_{idx}")
-                if not st.session_state.checked:
-                    if st.button("Check Word"):
-                        if not user_answer.strip():
-                            st.warning("Please write the word.")
-                            st.stop()
-
-                        user_clean = normalize_arabic(user_answer)
-                        correct_clean = normalize_arabic(vocab_word)
-
-                        is_correct = user_clean == correct_clean
-                        if is_correct:
-                            st.session_state.feedback = ("correct", vocab_word)
-                            st.session_state.score += 1
-                        else:
-                            st.session_state.feedback = ("incorrect", vocab_word)
-
-                        save_writing_attempt(
-                            user_id=user_id,
-                            vocab_word=vocab_word,
-                            sentence_en="Vocabulary Dictation",
-                            correct_sentence=vocab_word,
-                            user_answer=user_answer,
-                            is_correct=is_correct
-                        )
-
-                        st.session_state.checked = True
-                        st.rerun()
-
-                else:
-                    status, correct_word = st.session_state.feedback
-                    if status == "correct":
-                        st.success("Correct ✅ ! ")
-                    else:
-                        st.error(f"Incorrect ❌ , the correct word is {correct_word}")
-
-                    if st.button("Next Exercise ➡️"):
-                        st.session_state.exercise_index += 1
-                        st.session_state.checked = False
-                        st.rerun()
-
             # Sentence Translation
             if mode == "Sentence Translation":
                 st.markdown("Translate this sentence to Arabic")

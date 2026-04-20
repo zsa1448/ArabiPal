@@ -2,9 +2,16 @@ import streamlit as st
 from db_setup import require_login, get_learned_words, get_connection
 import streamlit.components.v1 as components
 
-st.set_page_config(page_title="My Learned Words", page_icon="📚")
 
 user_id, user_level = require_login()
+st.markdown("""
+    <link href="https://fonts.googleapis.com/css2?family=Lora&family=Nunito&display=swap" rel="stylesheet">
+    <style>
+        body, .stTextArea, .stInfo, .stMarkdown {font-family: 'Nunito', serif !important;}
+        h1, h2, h3, h4, h5, h6 {font-family: 'Lora', sans-serif !important;}
+        .css-1d391kg { font-family: 'Lora', sans-serif !important;}
+    </style>
+""", unsafe_allow_html=True)
 
 @st.cache_data
 def load_vocab_data():
