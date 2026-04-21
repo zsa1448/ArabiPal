@@ -97,7 +97,6 @@ def display_full_story(title, story_text, user_level):
         '''
     st.markdown(full_html, unsafe_allow_html=True)
 
-st.set_page_config(page_title="StoryLab", page_icon="📖")
 
 st.markdown("""
     <link href="https://fonts.googleapis.com/css2?family=Lora&family=Nunito&display=swap" rel="stylesheet">
@@ -156,7 +155,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 
-st.markdown("<h1 style='text-align:center; color:#3832aa;'>🦉📖 StoryLab</h1>", unsafe_allow_html=True)
+st.markdown("<h1 style='text-align:center; color:#3832aa;'> StoryLab</h1>", unsafe_allow_html=True)
 
 if "generated_story" not in st.session_state:
     if "user" not in st.session_state or "level" not in st.session_state.user:
@@ -472,7 +471,7 @@ elif st.session_state.view == "read":
     
     display_full_story( story["title"], story["content"], user_level )
     if "vocab" in story and story["vocab"]:
-        st.markdown("### 📘 Key Vocabulary")
+        st.markdown("###  Key Vocabulary")
         cols = st.columns(3)
         for i, vocab in enumerate(story["vocab"]):
             with cols[i % 3]:

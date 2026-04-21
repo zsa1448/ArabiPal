@@ -100,7 +100,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 st.markdown(
-    "<h1 style='text-align:center; color:#3832aa;'> 🧩 VocabLab </h1>",
+    "<h1 style='text-align:center; color:#3832aa;'> VocabLab </h1>",
     unsafe_allow_html=True
 )
 
@@ -191,6 +191,7 @@ for index, (category_name, words) in enumerate(categories.items()):
 
             if st.button("Practice Again →", key=f"practice_{category_name}_{index}", use_container_width=True):
                 st.session_state.selected_category = category_name
+                st.session_state.card_index = 0
                 st.switch_page("pages/Flashcards.py")
         else:
             st.markdown(f"""
@@ -209,6 +210,7 @@ for index, (category_name, words) in enumerate(categories.items()):
             """, unsafe_allow_html=True)
             if st.button("Start Practice → ", key=f"start_{category_name}_{index}", use_container_width=True):
                 st.session_state.selected_category = category_name
+                st.session_state.card_index = 0
                 st.switch_page("pages/Flashcards.py")   
             
 if not categories:

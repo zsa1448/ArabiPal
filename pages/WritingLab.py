@@ -99,7 +99,7 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-st.markdown("<h1 style='text-align:center; color:#3832aa;'>💡 WritingLab</h1>", unsafe_allow_html=True)
+st.markdown("<h1 style='text-align:center; color:#3832aa;'> WritingLab</h1>", unsafe_allow_html=True)
 st.markdown(""" Write freely or follow guided exercises to improve your Arabic writing skills – see your mistakes and progress instantly. """)
 
 def normalize_arabic(text):
@@ -753,7 +753,7 @@ with tab2:
                 st.stop()
 
         st.divider()
-        st.markdown("### 📝 Writing Check ")
+        st.markdown("### Writing Check ")
 
         st.markdown(
             f"""
@@ -783,7 +783,7 @@ with tab2:
             </div>
             """,
             unsafe_allow_html=True)
-        st.markdown("### 📝 Detailed Mistake Analysis")
+        st.markdown("###  Detailed Mistake Analysis")
         if data["mistakes"]: 
             for m in data["mistakes"]:
                 save_user_mistake(
@@ -912,7 +912,7 @@ with tab2:
         else:
             st.success("No mistakes found. Great writing! 🎉")
 
-        st.markdown("### 📝 Writing Feedback")
+        st.markdown("### Writing Feedback")
 
         feedback = data["feedback"]
         col1, col2, col3, col4 = st.columns(4)

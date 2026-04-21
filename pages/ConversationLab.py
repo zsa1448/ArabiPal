@@ -6,7 +6,7 @@ import os
 
 client = OpenAI(api_key=os.getenv("OpenAI_Capstone_key"))
 
-st.set_page_config(page_title="ConversationLab", page_icon="🤖")
+
 
 st.markdown("""
     <link href="https://fonts.googleapis.com/css2?family=Lora&family=Nunito&display=swap" rel="stylesheet">
@@ -38,7 +38,7 @@ audio {
 </style>
 """, unsafe_allow_html=True)
 
-st.markdown( "<h1 style='text-align:center; color:#3832aa;'> 🤖 🗪 ConversationLab </h1>", unsafe_allow_html=True)
+st.markdown( "<h1 style='text-align:center; color:#3832aa;'> ConversationLab </h1>", unsafe_allow_html=True)
 st.markdown("<br>", unsafe_allow_html=True)
 
 st.markdown("""
@@ -168,8 +168,6 @@ def build_system_prompt(level,scenario, memory):
                 --------------------------------
                 
                 If there is NO mistake:
-                
-                [REPLY]
                 continue the conversation normally
                             
             Conversation Memory:

@@ -731,7 +731,6 @@ def listening_sessions_count(user_id):
 
 
 def listening_exercises_count(user_id):
-    """Count total listening exercises attempted"""
     conn = get_connection()
     c = conn.cursor()
     c.execute('''
@@ -743,7 +742,6 @@ def listening_exercises_count(user_id):
 
 
 def listening_accuracy(user_id):
-    """Return average listening accuracy and total attempts"""
     conn = get_connection()
     c = conn.cursor()
     c.execute('''

@@ -49,7 +49,7 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-st.markdown("<h1 style='text-align:center; color:#3832aa;'>🎧 ListeningLab</h1>", unsafe_allow_html=True)
+st.markdown("<h1 style='text-align:center; color:#3832aa;'>ListeningLab</h1>", unsafe_allow_html=True)
 st.markdown("""Listen carefully and type the Arabic word you hear.""")
 
 

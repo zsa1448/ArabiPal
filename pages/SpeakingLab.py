@@ -79,7 +79,7 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-st.markdown("<h1 style='text-align:center; color:#3832aa;'>🗣️ SpeakLab</h1>", unsafe_allow_html=True)
+st.markdown("<h1 style='text-align:center; color:#3832aa;'> SpeakLab</h1>", unsafe_allow_html=True)
 
 def normalize_arabic(text):
     text = text.strip()
@@ -95,7 +95,6 @@ def extract_weak_vocab(mistakes):
     weak_words = []
     for m in mistakes:
         correct = normalize_arabic(m["correct_word"])
-        # filter short junk like "في", "من"
         if len(correct.split()) <= 2:
             weak_words.append(correct)
     return list(set(weak_words))
@@ -237,16 +236,21 @@ if st.button(" Start Speaking ", type="primary"):
                 Rules:
                 - Generate one short Arabic sentence in Modern Standard Arabic (MSA)
                 - Arabic sentence should be grammatically correct and accurate
+                - ِArabic sentence should be meaningful
                 - Arabic sentence should include the exact word: "{word}".
                 - If student level is A1, Arabic sentence must include 4 words only
-                - If student level is A2, Arabic sentence must include 6 words only
-                - If student level is B1, Arabic sentence must include 7-8 words only
+                - If student level is A2, Arabic sentence must include 5 words only
+                - If student level is B1, Arabic sentence must include 6 words only
                 - Use natural beginner expressions for student level A1/A2 and intermediate expressions for student level B1
             
                 Before returning the sentence:
                 -Verify the sentence is in Arabic
                 -Verify the {word} is included in the generated Arabic sentence
                 -Verify the Arabic sentence structure is suitable for the student level
+                -Verify the sentence generated consist of 4 words ONLY, if student level is A1 
+                -Verify the sentence generated consist of 5 words ONLY, if student level is A2 
+                -Verify the sentence generated consist of 6 words ONLY, if student level is B1 
+                - Verify sentence is simple in speaking for student level A1/A2.
                 
                 Return ONLY the Arabic sentence, nothing else.
             
@@ -336,14 +340,14 @@ if "speaking_exercises" in st.session_state and st.session_state.speaking_exerci
                         score=score)
                     
                     highlighted_sentence = highlight_sentence(word_matches)
-                    st.markdown(f"### 🎤︎︎ Speaking Accuracy ")
+                    st.markdown(f"###  Speaking Accuracy ")
                     st.markdown(f"""
                         <div style="text-align:left; font-size:28px; font-weight:800; color:#4f46e5;">
                             {percentage}%
                         </div>
                         """, unsafe_allow_html=True)
      
-                    st.markdown("### 🎤︎︎ Your Pronounciation")
+                    st.markdown("###  Your Pronounciation")
                     st.markdown(
                         f"""
                         <div dir="rtl" style="
@@ -388,7 +392,7 @@ if "speaking_exercises" in st.session_state and st.session_state.speaking_exerci
                         st.warning("❌ incorrect pronounciation, listen again and try to pronounce it better")
 
                     if sound_feedback:
-                        st.markdown("### 🎤︎ Pronunciation Tips")
+                        st.markdown("###  Pronunciation Tips")
                         st.warning( "Focus on these sounds:\n\n" + " • " + "\n • ".join(sound_feedback))
                     if missed_words:
                         st.caption(f"Focus on: {' , '.join(missed_words)}")

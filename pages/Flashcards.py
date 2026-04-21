@@ -9,6 +9,7 @@ import random
 import streamlit.components.v1 as components
 import re
 
+
 init_db()
 
 client = OpenAI(api_key=os.getenv("OpenAI_Capstone_key"))
@@ -100,6 +101,13 @@ if "selected_category" not in st.session_state:
 
 selected_category = st.session_state.selected_category
 
+if "last_category" not in st.session_state:
+    st.session_state.last_category = selected_category
+
+if st.session_state.last_category != selected_category:
+    st.session_state.card_index = 0
+    st.session_state.last_category = selected_category
+
 if user_level not in vocab_data or selected_category not in vocab_data[user_level]:
     st.error(f" No vocab words were found for {selected_category} category < {user_level} >.")
     st.stop()
@@ -113,21 +121,20 @@ words_prioritized = review_words + [w["arabic"] for w in all_words if w["arabic"
 words = [w for w in all_words if w["arabic"] in words_prioritized]
 
 total = len(words)
-
+if total == 0:
+    st.warning("No words available for this category.")
+    st.stop()
+    
 st.subheader(f"{selected_category} – {len(words)} words")
 
-if "current_card_index" not in st.session_state:
-    st.session_state.current_card_index = 0
-
-current_index = st.session_state.current_card_index
-total_words = len(words)
-
-
-# Display flashcard
 if "card_index" not in st.session_state:
     st.session_state.card_index = 0
 
 index = st.session_state.card_index
+if index >= len(words):
+    st.session_state.card_index = 0
+    index = 0
+
 word = words[index]
 progress = (index + 1) / total
 st.progress(progress)
@@ -224,8 +231,8 @@ with col_listen:
     if st.button("🔊", use_container_width=True):
         try:
             tts = client.audio.speech.create(
-                model="tts-1",
-                voice="nova",
+                model="gpt-4o-mini-tts",
+                voice="alloy",
                 input=arabic
             )
             with open("temp_audio.mp3", "wb") as f:
@@ -257,7 +264,7 @@ col_prev, col_prog, col_next = st.columns([1, 3, 1])
 with col_prev:
     if index > 0:
         if st.button("Previous", use_container_width=True):
-            st.session_state.card_index -= 1
+            st.session_state.card_index = max(0, st.session_state.card_index - 1)
             st.rerun()
 
 with col_prog:
@@ -294,7 +301,7 @@ if "quiz_active" in st.session_state and st.session_state.quiz_active:
                 ">
                     <span style="font-weight:800;">Score:</span>
                     <span style="font-weight:900; color:#4f46e5; margin-left:6px;">
-                        {final_score} / 
+                        {final_score} / 6
                     </span>
                 </div>
                 """
