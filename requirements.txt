@@ -1,8 +1,7 @@
-python>=3.12.1
 streamlit>=1.54.0
-openai>= 2.21.0
+openai>=2.21.0
 bcrypt>=5.0.0
 python-dotenv>=1.0.1
 pandas>=2.3.3
 deepgram-sdk>=6.1.1
-google-api-python-client
+google-api-python-client==2.194.0
